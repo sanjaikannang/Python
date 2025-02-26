@@ -1,0 +1,1048 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Python</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-transparentGray { background-color: undefined; }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1975a1d7-dea4-80e8-95ce-c02f5f9b1d1c" class="page sans"><header><h1 class="page-title">Python</h1><p class="page-description"></p></header><div class="page-body"><ul id="1975a1d7-dea4-80b4-92cf-f87dddbf77de" class="toggle"><li><details open=""><summary><em><strong>What is Python ?</strong></em></summary><p id="1975a1d7-dea4-8054-9f4a-c9306cddb7cc" class="">   → Python is a <em><strong><span style="border-bottom:0.05em solid">high-level, interpreted programming language</span></strong></em> known for its simplicity and readability. It is widely used for web development, data science, artificial intelligence, machine learning, automation, scripting, and more. Python emphasizes code readability with its clean syntax and indentation-based structure.</p><p id="1975a1d7-dea4-806f-bc40-de0207578a9a" class=""><em><strong>Key Features of Python:</strong></em></p><ul id="1975a1d7-dea4-804c-93e5-c681ffa48b68" class="bulleted-list"><li style="list-style-type:disc"><em><strong>Interpreted </strong></em>: Executes code line by line.</li></ul><ul id="1975a1d7-dea4-80ce-9383-fc3d9eb67f0c" class="bulleted-list"><li style="list-style-type:disc"><em><strong>Dynamically Typed </strong></em>: No need to declare variable types.</li></ul><ul id="1975a1d7-dea4-80e4-bf24-cec7eaba2bf6" class="bulleted-list"><li style="list-style-type:disc"><em><strong>Extensive Libraries</strong></em><strong> </strong>: Has rich libraries like NumPy, Pandas, TensorFlow, Django, Flask, etc.</li></ul></details></li></ul><p id="1975a1d7-dea4-80d1-8f2d-e1754f1dea68" class="">
+</p><ul id="1975a1d7-dea4-806f-aa9f-c00ffbfbd989" class="toggle"><li><details open=""><summary><em><strong>Installation of Python ?</strong></em></summary><p id="1975a1d7-dea4-8064-a090-e7a764145039" class=""><em><strong>STEPS :</strong></em></p><ol type="1" id="1975a1d7-dea4-80db-b2b5-edca769b9e09" class="numbered-list" start="1"><li>Go to the official Python website: <a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></li></ol><ol type="1" id="1975a1d7-dea4-803b-b51f-e1f0941db2eb" class="numbered-list" start="2"><li>Click on <strong>&quot;Download Python [latest version]&quot;</strong> (e.g., Python 3.x.x).</li></ol><ol type="1" id="1975a1d7-dea4-803b-9799-e0851f4fd0a4" class="numbered-list" start="3"><li>The installer (<code>.exe</code> file) will be downloaded.</li></ol><ol type="1" id="1975a1d7-dea4-80d2-abf9-e95094835889" class="numbered-list" start="4"><li>Open <strong>Command Prompt (cmd)</strong>:</li></ol><ol type="1" id="1975a1d7-dea4-805e-a081-f0c3509b8504" class="numbered-list" start="5"><li>Type <code>cmd</code>, and press <strong>Enter</strong>.</li></ol><ol type="1" id="1975a1d7-dea4-80ce-be5b-db48805bd3db" class="numbered-list" start="6"><li>Type the following command and press <strong>Enter </strong>: If Python is installed correctly, it will display the installed version.</li></ol><p id="1975a1d7-dea4-80f4-9289-d104d66555d8" class=""><em>                                                                       </em><em><strong>“ python --version ”</strong></em></p></details></li></ul><p id="1975a1d7-dea4-806a-a970-cd2668e8a513" class="">
+</p><ul id="1975a1d7-dea4-80de-a184-db11e999fd7f" class="toggle"><li><details open=""><summary><em><strong>What is Python Indentation ? </strong></em></summary><p id="1975a1d7-dea4-8032-a2d6-e98de3f20ef4" class="">         →  Indentation in Python refers to <em><strong><span style="border-bottom:0.05em solid">the spaces or tabs at the beginning of a line of code</span></strong></em> that define the structure of the program. Unlike other programming languages that use curly braces <code>{}</code> to mark code blocks, Python <strong>strictly enforces indentation</strong> to indicate blocks of code.</p><p id="1975a1d7-dea4-803a-bc45-d93e0d5b285a" class="">
+</p><p id="1975a1d7-dea4-80ab-8649-d01b3f476633" class="">        → The number of spaces is up to you as a programmer, the most common use is four, but it has to be at least one.</p></details></li></ul><p id="1975a1d7-dea4-80a2-9d71-f89b5ac1e431" class="">
+</p><ul id="1975a1d7-dea4-80bc-a000-ddb95859f721" class="toggle"><li><details open=""><summary><em><strong>Python Variables ?</strong></em></summary><p id="1975a1d7-dea4-80d0-bfa5-df14253d13f9" class="">         → A <strong>variable</strong> in Python is used to store data. It acts as a container that holds values, which can be changed during program execution.</p><p id="1975a1d7-dea4-8081-bedb-e326c10a8ffe" class="">
+</p><ul id="1975a1d7-dea4-8075-84de-dadeef2729f7" class="toggle"><li><details open=""><summary><em><strong>Declaring a Variable in Python :</strong></em></summary><ul id="1975a1d7-dea4-80cc-a5fd-c6f922c98dbb" class="bulleted-list"><li style="list-style-type:disc">Python <strong>automatically assigns</strong> the data type based on the value.</li></ul><ul id="1975a1d7-dea4-80e0-9fd7-fef40c8277f4" class="bulleted-list"><li style="list-style-type:disc">No need to specify <code>int</code>, <code>float</code>, <code>string</code>, etc.</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1975a1d7-dea4-80d9-9b84-ff1de6574938" class="code"><code class="language-Python">x = 10  # Integer
+y = &quot;Sanjai&quot;  # String
+z = 3.14  # Float</code></pre></details></li></ul><p id="1975a1d7-dea4-80de-b00a-d6de196e4af5" class="">
+</p><ul id="1975a1d7-dea4-8038-8d98-e77e240a98c2" class="toggle"><li><details open=""><summary><em><strong>Variable Names :</strong></em></summary><p id="1975a1d7-dea4-806c-8edc-ee9b26be4bc4" class=""><em><strong>Rules for Naming Variables</strong></em></p><p id="1975a1d7-dea4-8089-949f-c75c7e8f4278" class="">✅ <strong>Valid Variable Names</strong>:</p><ol type="1" id="1975a1d7-dea4-80b3-b663-d9a2292eed81" class="numbered-list" start="1"><li>Must start with a <strong>letter (a-z, A-Z) or an underscore </strong><code><strong>_</strong></code>, but not a number.</li></ol><ol type="1" id="1975a1d7-dea4-8033-a62f-cd89497d8729" class="numbered-list" start="2"><li>Can contain <strong>letters, numbers (0-9), and underscores </strong><code><strong>_</strong></code>.</li></ol><ol type="1" id="1975a1d7-dea4-803e-8940-d762069cbade" class="numbered-list" start="3"><li>Variable names are <strong>case-sensitive</strong> (<code>age</code> and <code>Age</code> are different).</li></ol><ol type="1" id="1975a1d7-dea4-806f-9e4f-dcfd5d908a5c" class="numbered-list" start="4"><li>Should not use <strong>Python keywords</strong> (e.g., <code>if</code>, <code>else</code>, <code>class</code>, <code>def</code>, etc.).</li></ol><p id="1975a1d7-dea4-80a1-b84a-cb2863c8c6b9" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1975a1d7-dea4-8046-9b20-e4d07f5b3655" class="code"><code class="language-Python">name = &quot;Sanjai&quot;  # Valid
+_age = 22  # Valid
+totalAmount = 500  # Valid</code></pre><p id="1975a1d7-dea4-80f5-b39e-cca35941dad3" class="">
+</p><p id="1975a1d7-dea4-80d3-abc0-fa32e0109199" class=""><em><strong>Best Practices for Naming Variables</strong></em></p><ul id="1975a1d7-dea4-806e-ad38-f4184ef91716" class="bulleted-list"><li style="list-style-type:disc">Use <strong>descriptive</strong> names (<code>student_name</code> instead of <code>s</code>).</li></ul><ul id="1975a1d7-dea4-80c2-a2c9-e9796c397cf1" class="bulleted-list"><li style="list-style-type:disc">Follow <strong>snake_case</strong> (<code>first_name</code>, <code>total_amount</code>).</li></ul><ul id="1975a1d7-dea4-80b0-8c50-f7b85c9920c5" class="bulleted-list"><li style="list-style-type:disc">Use <strong>camelCase</strong> if working with JavaScript-like syntax (<code>firstName</code>).</li></ul></details></li></ul><p id="1975a1d7-dea4-8077-81e8-f7d5c1ec03ad" class="">
+</p><ul id="1975a1d7-dea4-8004-a60c-ee1f0070a9f8" class="toggle"><li><details open=""><summary><em><strong>Assign Multiple Values :</strong></em></summary><p id="1975a1d7-dea4-809a-ae4e-ee045e16440d" class="">        → Python allows assigning <strong>multiple values</strong> to multiple variables in one line.</p><p id="1975a1d7-dea4-809e-bbc0-c9350f02dfad" class=""><strong>Example : </strong><em><strong>Assign Different Values</strong></em></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1975a1d7-dea4-8044-b1f8-e2b400f18c8a" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">a, b, c = 10, 20, 30
+print(a, b, c)  # Output: 10 20 30</code></pre><p id="1975a1d7-dea4-80cf-81f9-ff8b8228a905" class=""><strong>Example : </strong><em><strong>Assign Same Value to Multiple Variables</strong></em></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1975a1d7-dea4-808c-ac42-fda8095f4a28" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">x = y = z = 100
+print(x, y, z)  # Output: 100 100 100</code></pre><p id="1975a1d7-dea4-80ad-89cf-db8940013163" class=""><strong>Example : </strong><em><strong>Unpacking a List or Tuple</strong></em></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1975a1d7-dea4-80bb-92ae-c041e254fdb1" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">fruits = [&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;]
+x, y, z = fruits
+print(x, y, z)  # Output: apple banana cherry</code></pre></details></li></ul><p id="1975a1d7-dea4-8063-802f-e3218018d6b1" class="">
+</p><ul id="1975a1d7-dea4-80fb-ae21-de6bd20844d7" class="toggle"><li><details open=""><summary><em><strong>Output Variables :</strong></em></summary><p id="1975a1d7-dea4-80b5-b82b-c94978cf7f6e" class="">             → You can display the value of variables using <code>print()</code>.</p><p id="1975a1d7-dea4-80be-b51f-d82438973229" class=""><strong>Example : </strong><em><strong>Printing Variables</strong></em></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1975a1d7-dea4-8017-b4c4-d580f0c93f9c" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">name = &quot;Sanjai&quot;
+age = 22
+print(name)
+print(age)</code></pre><p id="1975a1d7-dea4-8052-9cef-daaa6f3bd6db" class=""><strong>Example :</strong><em><strong> Combining Strings and Variables</strong></em></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1975a1d7-dea4-8044-83c6-dd5f6b84f766" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">name = &quot;Sanjai&quot;
+print(&quot;Hello, &quot; + name)  # Output: Hello, Sanjai</code></pre><p id="1975a1d7-dea4-80ba-8b87-c697286d50c6" class=""><strong>Example : </strong><em><strong>Using </strong></em><em><code><strong>f-strings</strong></code></em><em><strong> (Recommended)</strong></em></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1975a1d7-dea4-80c3-a017-ea10f48bc409" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">age = 22
+print(f&quot;I am {age} years old.&quot;)  # Output: I am 22 years old.</code></pre><p id="1975a1d7-dea4-8045-8d13-c3b3b763d6af" class=""><strong>Example : </strong><em><strong>Using </strong></em><em><code><strong>format()</strong></code></em></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1975a1d7-dea4-8036-a70b-e2f312743eac" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">name = &quot;Sanjai&quot;
+age = 25
+print(&quot;My name is {} and I am {} years old.&quot;.format(name, age))</code></pre></details></li></ul><p id="1975a1d7-dea4-805d-9f7b-cc007bd3ea56" class="">
+</p><ul id="1975a1d7-dea4-80dc-a0c1-c3bab45afdfa" class="toggle"><li><details open=""><summary><strong>Global Variables :</strong></summary><p id="1975a1d7-dea4-80cb-a57e-f0d89dd22e5b" class="">       → A <strong>global variable</strong> is a variable declared outside of a function and can be accessed anywhere in the program.</p><p id="1975a1d7-dea4-80b0-8ad9-edeb7ed552eb" class=""><strong>Example : </strong><em><strong>Global Variable</strong></em></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1975a1d7-dea4-8013-ac77-cd4cabe18852" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">x = &quot;Python&quot;  # Global variable
+
+def my_function():
+    print(&quot;I love &quot; + x)
+
+my_function()  # Output: I love Python</code></pre><p id="1975a1d7-dea4-807e-9907-d516b54fa1c9" class=""><em><strong>Using the </strong></em><em><code><strong>global</strong></code></em><em><strong> Keyword</strong></em></p><p id="1975a1d7-dea4-8043-a418-c6b54bf47d60" class="">                → To modify a <strong>global variable</strong> inside a function, use the <code>global</code> keyword.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1975a1d7-dea4-804b-955b-e882d9b730f6" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">x = &quot;Python&quot;  # Global variable
+
+def my_function():
+    global x
+    x = &quot;JavaScript&quot;  # Modify global variable
+
+my_function()
+print(x)  # Output: JavaScript</code></pre></details></li></ul></details></li></ul><p id="1975a1d7-dea4-8063-a292-cb0b1982cf9e" class="">
+</p><ul id="1975a1d7-dea4-80d6-a9bb-e362ccffe45c" class="toggle"><li><details open=""><summary><em><strong>Python Data Types ?</strong></em></summary><p id="1975a1d7-dea4-80a2-943a-fc65f75503a9" class="">           → A <strong>data type</strong> defines the type of value a variable holds. Python provides several built-in data types.</p><ul id="1975a1d7-dea4-809b-80c0-e35339e15a4b" class="toggle"><li><details open=""><summary><em><strong>Types of Data Types :</strong></em></summary><table id="1975a1d7-dea4-8049-8851-f5e0aa20ebc6" class="simple-table"><tbody><tr id="1975a1d7-dea4-802a-9526-fc2652a132fc"><td id="PVOl" class="" style="width:226px">Text Type</td><td id="Y`F`" class="" style="width:396.6750183105469px"><code>str</code></td></tr><tr id="1975a1d7-dea4-80a5-a1df-f51eb4bf5e64"><td id="PVOl" class="" style="width:226px">Numeric Types</td><td id="Y`F`" class="" style="width:396.6750183105469px"><code>int</code>, <code>float</code>, <code>complex</code></td></tr><tr id="1975a1d7-dea4-8020-9e2b-c1be5990b5f3"><td id="PVOl" class="" style="width:226px">Sequence Types</td><td id="Y`F`" class="" style="width:396.6750183105469px"><code>list</code>, <code>tuple</code>, <code>range</code></td></tr><tr id="1975a1d7-dea4-8058-9903-f79fabafa4b0"><td id="PVOl" class="" style="width:226px">Mapping Type</td><td id="Y`F`" class="" style="width:396.6750183105469px"><code>dict</code></td></tr><tr id="1975a1d7-dea4-8054-8015-dade55ec2bc1"><td id="PVOl" class="" style="width:226px">Set Types</td><td id="Y`F`" class="" style="width:396.6750183105469px"><code>set</code>, <code>frozenset</code></td></tr><tr id="1975a1d7-dea4-806c-b8a4-e95ef5416c64"><td id="PVOl" class="" style="width:226px">Boolean Type</td><td id="Y`F`" class="" style="width:396.6750183105469px"><code>bool</code></td></tr><tr id="1975a1d7-dea4-803d-9279-e0d645c9fd80"><td id="PVOl" class="" style="width:226px">Binary Types</td><td id="Y`F`" class="" style="width:396.6750183105469px"><code>bytes</code>, <code>bytearray</code>, <code>memoryview</code></td></tr><tr id="1975a1d7-dea4-8022-9c2d-eb61d7ebae1b"><td id="PVOl" class="" style="width:226px">None Type</td><td id="Y`F`" class="" style="width:396.6750183105469px"><code>NoneType</code></td></tr></tbody></table></details></li></ul><p id="1975a1d7-dea4-80da-b1f4-f03517db6976" class="">
+</p><ul id="1975a1d7-dea4-806a-9435-d657de2ef08b" class="toggle"><li><details open=""><summary><em><strong>Setting the Specific Data Type :</strong></em></summary><table id="1975a1d7-dea4-80bc-8362-e8e403b6bf34" class="simple-table"><tbody><tr id="1975a1d7-dea4-800e-8c3e-fee56d0708c8"><td id="CRA`" class="block-color-gray_background" style="width:291.20001220703125px"><strong>Example</strong></td><td id="bl^z" class="block-color-gray_background" style="width:101px"><strong>Data Type</strong></td><td id="kpEe" class="block-color-gray_background" style="width:259px"><strong>OutPut</strong></td></tr><tr id="1975a1d7-dea4-807f-836c-d2c597636e58"><td id="CRA`" class="" style="width:291.20001220703125px"><strong>x = str(&quot;Sanjai Kannan G&quot;)</strong></td><td id="bl^z" class="" style="width:101px"><strong>str</strong></td><td id="kpEe" class="" style="width:259px"><strong>Sanjai Kannan G - str</strong></td></tr><tr id="1975a1d7-dea4-8017-a169-fa493c778dda"><td id="CRA`" class="" style="width:291.20001220703125px"><strong>x = int(22)</strong></td><td id="bl^z" class="" style="width:101px"><strong>int</strong></td><td id="kpEe" class="" style="width:259px"><strong>22 - int</strong></td></tr><tr id="1975a1d7-dea4-8054-b8fd-c25624a26049"><td id="CRA`" class="" style="width:291.20001220703125px"><strong>x = float(22.5)</strong></td><td id="bl^z" class="" style="width:101px"><strong>float</strong></td><td id="kpEe" class="" style="width:259px"><strong>22.5 - float</strong></td></tr><tr id="1975a1d7-dea4-80b8-bf25-d592c4b74fc1"><td id="CRA`" class="" style="width:291.20001220703125px"><strong>x = complex(1j)</strong></td><td id="bl^z" class="" style="width:101px"><strong>complex</strong></td><td id="kpEe" class="" style="width:259px"><strong>1j - complex</strong></td></tr><tr id="1975a1d7-dea4-805b-a4b7-cfa6d1cc6b74"><td id="CRA`" class="" style="width:291.20001220703125px"><strong>x = list((&quot;sanjai&quot;, &quot;kannan&quot;, &quot;gokul&quot;))</strong></td><td id="bl^z" class="" style="width:101px"><strong>list</strong></td><td id="kpEe" class="" style="width:259px"><strong>[&quot;sanjai&quot;, &quot;kannan&quot;, &quot;gokul&quot;] - list</strong></td></tr><tr id="1975a1d7-dea4-8037-9adf-cb550473846d"><td id="CRA`" class="" style="width:291.20001220703125px"><strong>x = tuple((&quot;sanjai&quot;, &quot;kannan&quot;, &quot;gokul&quot;))</strong></td><td id="bl^z" class="" style="width:101px"><strong>tuple</strong></td><td id="kpEe" class="" style="width:259px"><strong>(&quot;sanjai&quot;, &quot;kannan&quot;, &quot;gokul&quot;) - tuple</strong></td></tr><tr id="1975a1d7-dea4-808c-abe6-e2d4b108360b"><td id="CRA`" class="" style="width:291.20001220703125px"><strong>x = range(6)</strong></td><td id="bl^z" class="" style="width:101px"><strong>range</strong></td><td id="kpEe" class="" style="width:259px"><strong>range(0, 6) - range</strong></td></tr><tr id="1975a1d7-dea4-8042-8c9d-dc4faa410668"><td id="CRA`" class="" style="width:291.20001220703125px"><strong>x = dist(&quot;name&quot; : &quot;sanjai&quot;, &quot;age&quot; : 22)</strong></td><td id="bl^z" class="" style="width:101px"><strong>dict</strong></td><td id="kpEe" class="" style="width:259px"><strong>{&#x27;name&#x27;: &#x27;sanjai&#x27;, &#x27;age&#x27;: 22} - dist</strong></td></tr><tr id="1975a1d7-dea4-802e-8f61-cbd142a543d8"><td id="CRA`" class="" style="width:291.20001220703125px"><strong>x = set((&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;))</strong></td><td id="bl^z" class="" style="width:101px"><strong>set</strong></td><td id="kpEe" class="" style="width:259px"><strong>{&#x27;apple&#x27;, &#x27;banana&#x27;, &#x27;cherry&#x27;} - set</strong></td></tr><tr id="1975a1d7-dea4-80c4-98e3-e698fb0e55c6"><td id="CRA`" class="" style="width:291.20001220703125px"><strong>x = frozenset((&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;))</strong></td><td id="bl^z" class="" style="width:101px"><strong>frozenset</strong></td><td id="kpEe" class="" style="width:259px"><strong>frozenset({&#x27;banana&#x27;, &#x27;apple&#x27;, &#x27;cherry&#x27;})</strong></td></tr><tr id="1975a1d7-dea4-80c2-893c-c75fe47c6a0d"><td id="CRA`" class="" style="width:291.20001220703125px"><strong>x = bool(5)</strong></td><td id="bl^z" class="" style="width:101px"><strong>bool</strong></td><td id="kpEe" class="" style="width:259px"><strong>True</strong></td></tr><tr id="1975a1d7-dea4-8089-817d-fdf01c1d6023"><td id="CRA`" class="" style="width:291.20001220703125px"><strong>x = bytes(5)</strong></td><td id="bl^z" class="" style="width:101px"><strong>bytes</strong></td><td id="kpEe" class="" style="width:259px"><strong>b&#x27;\x00\x00\x00\x00\x00’</strong></td></tr><tr id="1975a1d7-dea4-808f-9a95-c661947d6365"><td id="CRA`" class="" style="width:291.20001220703125px"><strong>x = bytearray(5)</strong></td><td id="bl^z" class="" style="width:101px"><strong>bytearray</strong></td><td id="kpEe" class="" style="width:259px"><strong>bytearray(b&#x27;\x00\x00\x00\x00\x00&#x27;)</strong></td></tr><tr id="1975a1d7-dea4-80a5-9a2f-e631b5262881"><td id="CRA`" class="" style="width:291.20001220703125px"><strong>x = memoryview(bytes(5))</strong></td><td id="bl^z" class="" style="width:101px"><strong>memoryview</strong></td><td id="kpEe" class="" style="width:259px"><strong>&lt;memory at 0x00D58FA0&gt;</strong></td></tr></tbody></table></details></li></ul><p id="1975a1d7-dea4-8085-91c0-dddc60ce3a72" class="">
+</p></details></li></ul><p id="1975a1d7-dea4-802c-8ea0-c73939119c04" class="">
+</p><ul id="1975a1d7-dea4-808e-b4d8-fe9d7e5bede5" class="toggle"><li><details open=""><summary><em><strong>Python Casting (Type Conversion) ?</strong></em></summary><p id="1975a1d7-dea4-803a-a1b2-ed7cdd9647fc" class="">          → Python allows you to convert data from one type to another using <strong>casting functions</strong>.</p><p id="1975a1d7-dea4-8057-9844-f6893c463ca0" class="">
+</p><p id="1975a1d7-dea4-80c3-9a0b-f292bca790d6" class=""><em><strong>1. Casting to Integer (</strong></em><em><code><strong>int</strong></code></em><em><strong>) :</strong></em></p><p id="1975a1d7-dea4-807c-aadd-c9665cb0e18a" class="">               → Converts values to an integer (removes decimals, converts strings if valid).</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1975a1d7-dea4-8010-83a7-e51cf4368920" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">x = int(3.9)      # 3
+y = int(&quot;10&quot;)     # 10
+z = int(True)     # 1</code></pre><p id="1975a1d7-dea4-801e-b3aa-d0cfa042843e" class=""><em><strong>2. Casting to Float (</strong></em><em><code><strong>float</strong></code></em><em><strong>) :</strong></em></p><p id="1975a1d7-dea4-8058-8833-c19dbc88bb8f" class="">           → Converts values to a floating-point number.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1975a1d7-dea4-807a-9d34-cd03352ac0a7" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">x = float(5)       # 5.0
+y = float(&quot;3.14&quot;)  # 3.14
+z = float(False)   # 0.0</code></pre><p id="1975a1d7-dea4-806d-b476-ced52587137e" class=""><em><strong>3. Casting to String (</strong></em><em><code><strong>str</strong></code></em><em><strong>) :</strong></em></p><p id="1975a1d7-dea4-80a2-a191-f80b7723c065" class="">           → Converts values to a string.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1975a1d7-dea4-80b6-8637-feef63bef3c7" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">x = str(100)     # &quot;100&quot;
+y = str(3.14)    # &quot;3.14&quot;
+z = str(True)    # &quot;True&quot;</code></pre><p id="1975a1d7-dea4-80bb-8c43-ed80927f028d" class=""><em><strong>4. Casting to Boolean (</strong></em><em><code><strong>bool</strong></code></em><em><strong>) :</strong></em></p><p id="1975a1d7-dea4-8078-ad2b-fe70c4a500cf" class="">        → Converts values to <code>True</code> or <code>False</code>.</p><ul id="1975a1d7-dea4-8049-8803-e046b3a0c273" class="bulleted-list"><li style="list-style-type:disc"><code>0</code>, <code>None</code>, <code>&quot;&quot;</code>, <code>[]</code>, <code>{}</code> → <strong>False</strong></li></ul><ul id="1975a1d7-dea4-8084-a099-c8b07966022c" class="bulleted-list"><li style="list-style-type:disc">Everything else → <strong>True</strong></li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1975a1d7-dea4-8056-9e20-fe9096d62890" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">x = bool(0)        # False
+y = bool(10)       # True
+z = bool(&quot;Hello&quot;)  # True</code></pre><p id="1975a1d7-dea4-8088-8238-ccaa6f00fc87" class=""><em><strong>5. Casting to List (</strong></em><em><code><strong>list</strong></code></em><em><strong>) :</strong></em></p><p id="1975a1d7-dea4-8013-9e39-e31946f1ffa0" class="">         → Converts an iterable (tuple, string, range) to a list.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1975a1d7-dea4-8008-9a01-c9be580c600e" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">x = list(&quot;hello&quot;)       # [&#x27;h&#x27;, &#x27;e&#x27;, &#x27;l&#x27;, &#x27;l&#x27;, &#x27;o&#x27;]
+y = list((1, 2, 3))     # [1, 2, 3]
+z = list(range(3))      # [0, 1, 2]</code></pre><p id="1975a1d7-dea4-8082-9d7d-e9dd03143dfd" class=""><em><strong>6. Casting to Tuple (</strong></em><em><code><strong>tuple</strong></code></em><em><strong>) :</strong></em></p><p id="1975a1d7-dea4-805f-8678-f5117704a6bb" class="">        → Converts an iterable to a tuple.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1975a1d7-dea4-80c2-8749-e69e874c51d3" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">x = tuple([1, 2, 3])    # (1, 2, 3)
+y = tuple(&quot;hello&quot;)      # (&#x27;h&#x27;, &#x27;e&#x27;, &#x27;l&#x27;, &#x27;l&#x27;, &#x27;o&#x27;)</code></pre><p id="1975a1d7-dea4-8025-b1f1-cc40c7067455" class=""><em><strong>7. Casting to Set (</strong></em><em><code><strong>set</strong></code></em><em><strong>) :</strong></em></p><p id="1975a1d7-dea4-806e-bd05-fd74d13ad4e8" class="">           → Converts an iterable to a set (removes duplicates).</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1975a1d7-dea4-8083-8dca-ebf7cb44eb37" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">python
+CopyEdit
+x = set([1, 2, 2, 3])   # {1, 2, 3}
+y = set(&quot;banana&quot;)       # {&#x27;a&#x27;, &#x27;b&#x27;, &#x27;n&#x27;}</code></pre><p id="1975a1d7-dea4-80f0-a75c-dba70e928358" class=""><em><strong>8. Casting to Dictionary (</strong></em><em><code><strong>dict</strong></code></em><em><strong>) :</strong></em></p><p id="1975a1d7-dea4-80d9-9169-cee47e3399f2" class="">              → Converts a list of key-value pairs to a dictionary.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1975a1d7-dea4-80f5-b631-e43fbf733075" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">x = dict([(&quot;name&quot;, &quot;Sanjai&quot;), (&quot;age&quot;, 25)])
+# {&#x27;name&#x27;: &#x27;Sanjai&#x27;, &#x27;age&#x27;: 25}</code></pre></details></li></ul><p id="1985a1d7-dea4-8069-8fe8-e792485d0e54" class="">
+</p><ul id="1985a1d7-dea4-8050-bf78-fac52b6c33a0" class="toggle"><li><details open=""><summary><em><strong>Python Strings ?</strong></em></summary><ul id="1985a1d7-dea4-8096-9e5d-faa5b2c6e109" class="toggle"><li><details open=""><summary><em><strong>Strings : </strong></em></summary><p id="1985a1d7-dea4-80c2-9c22-e73845940c7e" class="">         → A <strong>string</strong> in Python is a sequence of characters enclosed in <strong>single</strong>, <strong>double</strong>, or <strong>triple quotes</strong>.</p><p id="1985a1d7-dea4-8030-bba2-ce49b00b428b" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1985a1d7-dea4-80ee-a57b-e98ce09d117e" class="code"><code class="language-Python">print(&quot;Sanjai&quot;) #Double Quotes
+print(&#x27;Sanjai&#x27;)  #Single Quotes </code></pre></details></li></ul><p id="1985a1d7-dea4-80c9-b240-d31d97cd48b3" class="">
+</p><ul id="1985a1d7-dea4-80df-8e59-f28d7e5b1091" class="toggle"><li><details open=""><summary><em><strong> Slicing Strings :</strong></em></summary><p id="1985a1d7-dea4-8072-9887-efbf7def81e1" class="">    → Python allows <strong>indexing</strong> and <strong>slicing</strong> strings using <code>[]</code>.</p><p id="1985a1d7-dea4-80be-a274-d68051c3331d" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1985a1d7-dea4-8001-808b-e51ace045b72" class="code"><code class="language-Python">text = &quot;Sanjai Kannan G&quot;
+
+# Accessing characters
+print(text[0])    # S (first character)
+print(text[-1])   # G (last character)
+
+# Slicing [start:end:step]
+print(text[0:6])   # Python (0 to 5)
+print(text[7:])    # Kannan G (from index 7 to end)
+print(text[:6])    # Sanja (start to index 5)
+print(text[::2])   # Sna annG (every second character)
+print(text[::-1])  # G nannaK iajnaS (Reverse string)</code></pre></details></li></ul><p id="1985a1d7-dea4-8075-aab3-c38b67978c6a" class="">
+</p><ul id="1985a1d7-dea4-8079-b922-c07492f45a85" class="toggle"><li><details open=""><summary><em><strong>Modify Strings :</strong></em></summary><p id="1985a1d7-dea4-80ed-a198-d6c80a67f11b" class="">           → Python provides multiple string modification methods.</p><p id="1985a1d7-dea4-8021-b7d6-e7c6e467c097" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1985a1d7-dea4-802f-b2d2-f657dae6bf19" class="code"><code class="language-Python">text = &quot; Sanjai Kannan G&quot;
+
+# Changing case
+print(text.upper())    # &quot; HELLO WORLD &quot;
+print(text.lower())    # &quot; hello world &quot;
+print(text.title())    # &quot; Hello World &quot;
+print(text.capitalize()) # &quot; Hello world &quot;
+
+# Removing spaces
+print(text.strip())   # &quot;hello world&quot;
+print(text.lstrip())  # &quot;hello world &quot; (removes left spaces)
+print(text.rstrip())  # &quot; hello world&quot; (removes right spaces)
+
+# Replacing
+print(text.replace(&quot;hello&quot;, &quot;Hi&quot;))  # &quot; Hi world &quot;</code></pre></details></li></ul><p id="1a45a1d7-dea4-8052-b9d1-f9a01536ee6e" class="">
+</p><ul id="1a45a1d7-dea4-80fd-8ce3-d675c46314a1" class="toggle"><li><details open=""><summary><em><strong>Concatenate Strings</strong></em></summary><p id="1a45a1d7-dea4-80f0-af68-e56437f0092c" class="">               → In Python, you can concatenate strings using the <code>+</code> operator or using the <code>join()</code> method.</p><p id="1a45a1d7-dea4-80ea-8f2c-f0a1a88e1d56" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a45a1d7-dea4-8036-b4f8-deb6af59a118" class="code"><code class="language-Python"># USING &quot; + &quot;
+
+str1 = &quot;sanjai&quot;
+str2 = &quot;kannan&quot;
+
+result = str1 + &quot; &quot; + str2   # Concatenate with a space
+print(result)  # Output: sanjai kannan</code></pre><p id="1a45a1d7-dea4-8037-8f76-fc437b2824b4" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a45a1d7-dea4-804d-a2e7-fa009b527f08" class="code"><code class="language-Python"># USING &quot; JOIN &quot;
+
+str1 = &quot;sanjai&quot;
+str2 = &quot;kannan&quot;
+
+result = &quot; &quot;.join([str1, str2])  # Join with a space
+print(result)  # Output: sanjai kannan</code></pre></details></li></ul><p id="1a45a1d7-dea4-80e4-a640-cdff4874c5b3" class="">
+</p><ul id="1a45a1d7-dea4-80c2-8c01-e5fd49544af0" class="toggle"><li><details open=""><summary><em><strong>Format Strings</strong></em></summary><p id="1a45a1d7-dea4-803d-a732-cbc4d8c924ff" class="">    → In 2 Methods we can format a string in python.</p><p id="1a45a1d7-dea4-8066-be60-c0aee7a9bb21" class="">
+</p><ol type="1" id="1a45a1d7-dea4-803f-b5b2-e824cd8be5f1" class="numbered-list" start="1"><li><strong>Using f-strings</strong> (Python 3.6+)</li></ol><ol type="1" id="1a45a1d7-dea4-8024-9999-d44f1234088e" class="numbered-list" start="2"><li><strong>Using </strong><code><strong>.format()</strong></code><br/><br/></li></ol><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a45a1d7-dea4-808d-96c0-e8a31b785a8f" class="code"><code class="language-Python"># Using f-strings
+
+str1 = &quot;sanjai&quot;
+
+result = f&quot;my name is {str1}&quot;
+print(result)</code></pre><p id="1a45a1d7-dea4-801b-815e-f8e2115dc7b2" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a45a1d7-dea4-80c6-99bf-f7eec829815e" class="code"><code class="language-Python"># Using .format()
+
+name = &quot;sanjai&quot;
+age = 22
+
+result = &quot;my name is {} and my age is {}&quot;.format(name, age)
+print(result)</code></pre><p id="1a45a1d7-dea4-8086-91bd-db9f48282c87" class="">
+</p></details></li></ul><p id="1a45a1d7-dea4-804c-8e63-d0e079e445b1" class="">
+</p><ul id="1a45a1d7-dea4-807c-bd73-c81ab877bee4" class="toggle"><li><details open=""><summary><em><strong>Escape Characters</strong></em></summary><p id="1a45a1d7-dea4-80e1-88b7-e98b65c8bc79" class="">           → Escape characters allow you to insert special characters into strings. For example:</p><ul id="1a45a1d7-dea4-80b5-97fd-e0c86a64402a" class="bulleted-list"><li style="list-style-type:disc"><code>\n</code>: Newline</li></ul><ul id="1a45a1d7-dea4-8027-b5a7-f535eaabe350" class="bulleted-list"><li style="list-style-type:disc"><code>\t</code>: Tab</li></ul><ul id="1a45a1d7-dea4-8083-9356-c95df46bec63" class="bulleted-list"><li style="list-style-type:disc"><code>\\</code>: Backslash</li></ul><ul id="1a45a1d7-dea4-80fb-813b-e3f5e44d8cd6" class="bulleted-list"><li style="list-style-type:disc"><code>\&#x27;</code>: Single quote</li></ul><ul id="1a45a1d7-dea4-808f-82f1-cbc27f0efb74" class="bulleted-list"><li style="list-style-type:disc"><code>\&quot;</code>: Double quote</li></ul><p id="1a45a1d7-dea4-807d-a6bd-d8a1df35322a" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a45a1d7-dea4-8062-97b3-ca9fddfac4e1" class="code"><code class="language-Python">str1 = &quot;Sanjai\nKannan&quot;  # Newline between Sanjai and Kannan
+print(str1)  # Output:
+# Sanjai
+# Kannan
+
+str2 = &quot;This is a \&quot;quoted\&quot; word.&quot;
+print(str2)  # Output: This is a &quot;quoted&quot; word.
+
+str3 = &quot;Backslash: \\&quot;
+print(str3)  # Output: Backslash: \</code></pre></details></li></ul><p id="1a45a1d7-dea4-8006-8074-c8f4a402c84f" class="">
+</p><ul id="1a45a1d7-dea4-8032-bbe2-e9f83d9f3580" class="toggle"><li><details open=""><summary><em><strong>String Methods</strong></em></summary><p id="1a45a1d7-dea4-80e2-a898-f41f605c322c" class="">
+</p><p id="1a45a1d7-dea4-80f1-bfb6-c0470bbb3422" class=""><strong>PYTHON STRING METHODS</strong></p><p id="1a45a1d7-dea4-80bd-9c22-c60849dbd98b" class="">
+</p><table id="1a45a1d7-dea4-8042-a95b-c78a58dc4ef4" class="simple-table"><thead class="simple-table-header"><tr id="1a45a1d7-dea4-80d5-b638-cb995baa00c5"><th id="swnq" class="block-color-brown_background simple-table-header" style="width:38px">No</th><th id="at_i" class="block-color-brown_background simple-table-header" style="width:233px"><strong>Method</strong></th><th id="JHZi" class="block-color-brown_background simple-table-header" style="width:478px"><strong>Description</strong></th><th id="FQBi" class="block-color-brown_background simple-table-header" style="width:504.2250061035156px"><strong>Example</strong></th></tr></thead><tbody><tr id="1a45a1d7-dea4-80ea-93f1-e7a8cf67f946"><td id="swnq" class="" style="width:38px">1</td><td id="at_i" class="" style="width:233px">capitalize()</td><td id="JHZi" class="" style="width:478px">Converts the first character to upper case</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;hello&quot;.capitalize()</code> → <code>&#x27;Hello&#x27;</code></td></tr><tr id="1a45a1d7-dea4-80c3-ad40-fad4bc820469"><td id="swnq" class="" style="width:38px">2</td><td id="at_i" class="" style="width:233px">casefold()</td><td id="JHZi" class="" style="width:478px">Converts string into lower case</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;HELLO&quot;.casefold()</code> → <code>&#x27;hello&#x27;</code></td></tr><tr id="1a45a1d7-dea4-80fe-9571-eb9d8d345613"><td id="swnq" class="" style="width:38px">3</td><td id="at_i" class="" style="width:233px">center()</td><td id="JHZi" class="" style="width:478px">Returns a centered string</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;hello&quot;.center(10, &quot;*&quot;)</code> → <code>&#x27;**hello***&#x27;</code></td></tr><tr id="1a45a1d7-dea4-80d9-b12f-ca1742ce290c"><td id="swnq" class="" style="width:38px">4</td><td id="at_i" class="" style="width:233px">count()</td><td id="JHZi" class="" style="width:478px">Returns the number of times a specified value occurs</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;hello&quot;.count(&#x27;l&#x27;)</code> → <code>2</code></td></tr><tr id="1a45a1d7-dea4-80f3-9701-cfd925f3dfde"><td id="swnq" class="" style="width:38px">5</td><td id="at_i" class="" style="width:233px">encode()</td><td id="JHZi" class="" style="width:478px">Returns an encoded version of the string</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;hello&quot;.encode()</code> → <code>b&#x27;hello&#x27;</code></td></tr><tr id="1a45a1d7-dea4-807a-b283-c9e5ce96d421"><td id="swnq" class="" style="width:38px">6</td><td id="at_i" class="" style="width:233px">endswith()</td><td id="JHZi" class="" style="width:478px">Returns true if the string ends with the specified value</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;hello&quot;.endswith(&#x27;o&#x27;)</code> → <code>True</code></td></tr><tr id="1a45a1d7-dea4-80e1-ac7e-ce0a323ef66c"><td id="swnq" class="" style="width:38px">7</td><td id="at_i" class="" style="width:233px">expandtabs()</td><td id="JHZi" class="" style="width:478px">Sets the tab size of the string</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;hello\tworld&quot;.expandtabs(4)</code> → <code>&#x27;hello world&#x27;</code></td></tr><tr id="1a45a1d7-dea4-80fc-bc5e-ff9f48d03406"><td id="swnq" class="" style="width:38px">8</td><td id="at_i" class="" style="width:233px">find()</td><td id="JHZi" class="" style="width:478px">Searches the string for a specified value</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;hello&quot;.find(&#x27;e&#x27;)</code> → <code>1</code></td></tr><tr id="1a45a1d7-dea4-802c-8419-fa1e21cb4882"><td id="swnq" class="" style="width:38px">9</td><td id="at_i" class="" style="width:233px">format()</td><td id="JHZi" class="" style="width:478px">Formats specified values in a string</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;My name is {}&quot;.format(&quot;Alice&quot;)</code> → <code>&#x27;My name is Alice&#x27;</code></td></tr><tr id="1a45a1d7-dea4-809d-9b85-dd170d4fe55e"><td id="swnq" class="" style="width:38px">10</td><td id="at_i" class="" style="width:233px">format_map()</td><td id="JHZi" class="" style="width:478px">Formats specified values in a string</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;My name is {name}&quot;.format_map({&quot;name&quot;: &quot;Alice&quot;})</code> → <code>&#x27;My name is Alice&#x27;</code></td></tr><tr id="1a45a1d7-dea4-80ab-be10-d12d06d46e23"><td id="swnq" class="" style="width:38px">11</td><td id="at_i" class="" style="width:233px">index()</td><td id="JHZi" class="" style="width:478px">Searches the string for a specified value</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;hello&quot;.index(&#x27;e&#x27;)</code> → <code>1</code></td></tr><tr id="1a45a1d7-dea4-80aa-bc13-efa2c3e1072b"><td id="swnq" class="" style="width:38px">12</td><td id="at_i" class="" style="width:233px">isalnum()</td><td id="JHZi" class="" style="width:478px">Returns True if all characters are alphanumeric</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;hello123&quot;.isalnum()</code> → <code>True</code></td></tr><tr id="1a45a1d7-dea4-80ce-b54d-c79b76554bb7"><td id="swnq" class="" style="width:38px">13</td><td id="at_i" class="" style="width:233px">isalpha()</td><td id="JHZi" class="" style="width:478px">Returns True if all characters are in the alphabet</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;hello&quot;.isalpha()</code> → <code>True</code></td></tr><tr id="1a45a1d7-dea4-80e1-8afd-f24431d8a6c1"><td id="swnq" class="" style="width:38px">14</td><td id="at_i" class="" style="width:233px">isascii()</td><td id="JHZi" class="" style="width:478px">Returns True if all characters are ascii characters</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;hello&quot;.isascii()</code> → <code>True</code></td></tr><tr id="1a45a1d7-dea4-809b-82d9-f8717653d6ac"><td id="swnq" class="" style="width:38px">15</td><td id="at_i" class="" style="width:233px">isdecimal()</td><td id="JHZi" class="" style="width:478px">Returns True if all characters are decimals</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;123&quot;.isdecimal()</code> → <code>True</code></td></tr><tr id="1a45a1d7-dea4-8023-a00c-f9bed3948cf5"><td id="swnq" class="" style="width:38px">16</td><td id="at_i" class="" style="width:233px">isdigit()</td><td id="JHZi" class="" style="width:478px">Returns True if all characters are digits</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;123&quot;.isdigit()</code> → <code>True</code></td></tr><tr id="1a45a1d7-dea4-80f8-b276-fcaa2a65eb7e"><td id="swnq" class="" style="width:38px">17</td><td id="at_i" class="" style="width:233px">isidentifier()</td><td id="JHZi" class="" style="width:478px">Returns True if the string is an identifier</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;my_var&quot;.isidentifier()</code> → <code>True</code></td></tr><tr id="1a45a1d7-dea4-8000-9afb-f37f1e91ad3f"><td id="swnq" class="" style="width:38px">18</td><td id="at_i" class="" style="width:233px">islower()</td><td id="JHZi" class="" style="width:478px">Returns True if all characters are lower case</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;hello&quot;.islower()</code> → <code>True</code></td></tr><tr id="1a45a1d7-dea4-800d-831a-e1dd0590d99f"><td id="swnq" class="" style="width:38px">29</td><td id="at_i" class="" style="width:233px">isnumeric()</td><td id="JHZi" class="" style="width:478px">Returns True if all characters are numeric</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;123&quot;.isnumeric()</code> → <code>True</code></td></tr><tr id="1a45a1d7-dea4-8025-9b11-e27a0f1c5662"><td id="swnq" class="" style="width:38px">20</td><td id="at_i" class="" style="width:233px">isprintable()</td><td id="JHZi" class="" style="width:478px">Returns True if all characters in the string are printable</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;hello&quot;.isprintable()</code> → <code>True</code></td></tr><tr id="1a45a1d7-dea4-805e-b37b-e4eb3a0ad3ec"><td id="swnq" class="" style="width:38px">21</td><td id="at_i" class="" style="width:233px">isspace()</td><td id="JHZi" class="" style="width:478px">Returns True if all characters are whitespaces</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot; &quot;.isspace()</code> → <code>True</code></td></tr><tr id="1a45a1d7-dea4-8029-9fc1-fff52afcb0bd"><td id="swnq" class="" style="width:38px">22</td><td id="at_i" class="" style="width:233px">istitle()</td><td id="JHZi" class="" style="width:478px">Returns True if the string follows the rules of a title</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;Hello World&quot;.istitle()</code> → <code>True</code></td></tr><tr id="1a45a1d7-dea4-805e-9790-cb6b3000eab2"><td id="swnq" class="" style="width:38px">23</td><td id="at_i" class="" style="width:233px">isupper()</td><td id="JHZi" class="" style="width:478px">Returns True if all characters are upper case</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;HELLO&quot;.isupper()</code> → <code>True</code></td></tr><tr id="1a45a1d7-dea4-80c2-983c-ed20b87c256a"><td id="swnq" class="" style="width:38px">24</td><td id="at_i" class="" style="width:233px">join()</td><td id="JHZi" class="" style="width:478px">Joins the elements of an iterable to the end of the string</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;-&quot;.join([&#x27;hello&#x27;, &#x27;world&#x27;])</code> → <code>&#x27;hello-world&#x27;</code></td></tr><tr id="1a45a1d7-dea4-8070-a518-c525a9d787f1"><td id="swnq" class="" style="width:38px">25</td><td id="at_i" class="" style="width:233px">ljust()</td><td id="JHZi" class="" style="width:478px">Returns a left justified version of the string</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;hello&quot;.ljust(10, &#x27;*&#x27;)</code> → <code>&#x27;hello*****&#x27;</code></td></tr><tr id="1a45a1d7-dea4-8097-a4c2-f51153211576"><td id="swnq" class="" style="width:38px">26</td><td id="at_i" class="" style="width:233px">lower()</td><td id="JHZi" class="" style="width:478px">Converts a string into lower case</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;HELLO&quot;.lower()</code> → <code>&#x27;hello&#x27;</code></td></tr><tr id="1a45a1d7-dea4-80da-b91f-debde537a58d"><td id="swnq" class="" style="width:38px">27</td><td id="at_i" class="" style="width:233px">lstrip()</td><td id="JHZi" class="" style="width:478px">Returns a left trim version of the string</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot; hello&quot;.lstrip()</code> → <code>&#x27;hello&#x27;</code></td></tr><tr id="1a45a1d7-dea4-800b-9bb5-f96200c0fb44"><td id="swnq" class="" style="width:38px">28</td><td id="at_i" class="" style="width:233px">maketrans()</td><td id="JHZi" class="" style="width:478px">Returns a translation table to be used in translations</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;abc&quot;.maketrans(&quot;a&quot;, &quot;z&quot;)</code> → <code>translation table</code></td></tr><tr id="1a45a1d7-dea4-800f-b036-e601df990495"><td id="swnq" class="" style="width:38px">29</td><td id="at_i" class="" style="width:233px">partition()</td><td id="JHZi" class="" style="width:478px">Returns a tuple where the string is parted into three parts</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;hello world&quot;.partition(&quot; &quot;)</code> → <code>(&#x27;hello&#x27;, &#x27; &#x27;, &#x27;world&#x27;)</code></td></tr><tr id="1a45a1d7-dea4-8034-bf76-f680178c2c9f"><td id="swnq" class="" style="width:38px">30</td><td id="at_i" class="" style="width:233px">replace()</td><td id="JHZi" class="" style="width:478px">Returns a string where a specified value is replaced</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;hello&quot;.replace(&quot;e&quot;, &quot;a&quot;)</code> → <code>&#x27;hallo&#x27;</code></td></tr><tr id="1a45a1d7-dea4-8073-9012-c1e9db4ec197"><td id="swnq" class="" style="width:38px">31</td><td id="at_i" class="" style="width:233px">rfind()</td><td id="JHZi" class="" style="width:478px">Searches the string for a specified value (last occurrence)</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;hello&quot;.rfind(&#x27;l&#x27;)</code> → <code>3</code></td></tr><tr id="1a45a1d7-dea4-806e-adfa-c94d9f2fa68f"><td id="swnq" class="" style="width:38px">32</td><td id="at_i" class="" style="width:233px">rindex()</td><td id="JHZi" class="" style="width:478px">Searches the string for a specified value (last occurrence)</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;hello&quot;.rindex(&#x27;l&#x27;)</code> → <code>3</code></td></tr><tr id="1a45a1d7-dea4-80a4-9870-fd0f198856a0"><td id="swnq" class="" style="width:38px">33</td><td id="at_i" class="" style="width:233px">rjust()</td><td id="JHZi" class="" style="width:478px">Returns a right justified version of the string</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;hello&quot;.rjust(10, &#x27;*&#x27;)</code> → <code>&#x27;*****hello&#x27;</code></td></tr><tr id="1a45a1d7-dea4-801c-b231-df7ee0a682ce"><td id="swnq" class="" style="width:38px">34</td><td id="at_i" class="" style="width:233px">rpartition()</td><td id="JHZi" class="" style="width:478px">Returns a tuple where the string is parted into three parts (from right)</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;hello world&quot;.rpartition(&quot; &quot;)</code> → <code>(&#x27;hello&#x27;, &#x27; &#x27;, &#x27;world&#x27;)</code></td></tr><tr id="1a45a1d7-dea4-8071-9f3d-ee03b29868c9"><td id="swnq" class="" style="width:38px">35</td><td id="at_i" class="" style="width:233px">rsplit()</td><td id="JHZi" class="" style="width:478px">Splits the string at the specified separator, returns a list</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;a,b,c&quot;.rsplit(&#x27;,&#x27;)</code> → <code>[&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;]</code></td></tr><tr id="1a45a1d7-dea4-80aa-adf8-cef4567f7eb4"><td id="swnq" class="" style="width:38px">36</td><td id="at_i" class="" style="width:233px">rstrip()</td><td id="JHZi" class="" style="width:478px">Returns a right trim version of the string</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;hello &quot;.rstrip()</code> → <code>&#x27;hello&#x27;</code></td></tr><tr id="1a45a1d7-dea4-8003-85fb-c759d43c31fb"><td id="swnq" class="" style="width:38px">37</td><td id="at_i" class="" style="width:233px">split()</td><td id="JHZi" class="" style="width:478px">Splits the string at the specified separator, returns a list</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;a,b,c&quot;.split(&#x27;,&#x27;)</code> → <code>[&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;]</code></td></tr><tr id="1a45a1d7-dea4-802f-aa05-c9b61d69a2eb"><td id="swnq" class="" style="width:38px">38</td><td id="at_i" class="" style="width:233px">splitlines()</td><td id="JHZi" class="" style="width:478px">Splits the string at line breaks and returns a list</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;hello\nworld&quot;.splitlines()</code> → <code>[&#x27;hello&#x27;, &#x27;world&#x27;]</code></td></tr><tr id="1a45a1d7-dea4-807f-a07a-c1b59cb7db1b"><td id="swnq" class="" style="width:38px">39</td><td id="at_i" class="" style="width:233px">startswith()</td><td id="JHZi" class="" style="width:478px">Returns true if the string starts with the specified value</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;hello&quot;.startswith(&#x27;h&#x27;)</code> → <code>True</code></td></tr><tr id="1a45a1d7-dea4-80d5-86b1-f34b41738c82"><td id="swnq" class="" style="width:38px">40</td><td id="at_i" class="" style="width:233px">strip()</td><td id="JHZi" class="" style="width:478px">Returns a trimmed version of the string</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot; hello &quot;.strip()</code> → <code>&#x27;hello&#x27;</code></td></tr><tr id="1a45a1d7-dea4-80ed-ab1a-ca1387fd2979"><td id="swnq" class="" style="width:38px">41</td><td id="at_i" class="" style="width:233px">swapcase()</td><td id="JHZi" class="" style="width:478px">Swaps cases, lower case becomes upper case and vice versa</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;Hello&quot;.swapcase()</code> → <code>&#x27;hELLO&#x27;</code></td></tr><tr id="1a45a1d7-dea4-8021-9bac-c1dc4346170c"><td id="swnq" class="" style="width:38px">42</td><td id="at_i" class="" style="width:233px">title()</td><td id="JHZi" class="" style="width:478px">Converts the first character of each word to upper case</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;hello world&quot;.title()</code> → <code>&#x27;Hello World&#x27;</code></td></tr><tr id="1a45a1d7-dea4-8042-9c5d-fc5a220af59b"><td id="swnq" class="" style="width:38px">43</td><td id="at_i" class="" style="width:233px">translate()</td><td id="JHZi" class="" style="width:478px">Returns a translated string</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;abc&quot;.translate({97: 65})</code> → <code>&#x27;Abc&#x27;</code></td></tr><tr id="1a45a1d7-dea4-806f-ad21-f33c7d6e7fc4"><td id="swnq" class="" style="width:38px">44</td><td id="at_i" class="" style="width:233px">upper()</td><td id="JHZi" class="" style="width:478px">Converts a string into upper case</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;hello&quot;.upper()</code> → <code>&#x27;HELLO&#x27;</code></td></tr><tr id="1a45a1d7-dea4-80ab-b898-d976bb451a34"><td id="swnq" class="" style="width:38px">45</td><td id="at_i" class="" style="width:233px">zfill()</td><td id="JHZi" class="" style="width:478px">Fills the string with a specified number of 0 values at the beginning</td><td id="FQBi" class="" style="width:504.2250061035156px"><code>&quot;42&quot;.zfill(5)</code> → <code>&#x27;00042&#x27;</code></td></tr></tbody></table></details></li></ul></details></li></ul><p id="1a65a1d7-dea4-8093-bfb7-fd55cf3cefc0" class="">
+</p><ul id="1a65a1d7-dea4-8003-b4df-c8cd2cbcf5ef" class="toggle"><li><details open=""><summary><em><strong>Python Booleans ?</strong></em></summary><p id="1a65a1d7-dea4-8063-9584-ecff76579537" class=""><em><strong>Boolean Values :</strong></em></p><p id="1a65a1d7-dea4-8048-b797-ed26fbb9d237" class="">          → In programming you often need to know if an expression is <code>True</code> or <code>False</code>.</p><p id="1a65a1d7-dea4-8084-aedf-e69231245250" class="">          → You can evaluate any expression in Python, and get one of two answers, <code>True</code> or <code>False</code>.</p><p id="1a65a1d7-dea4-8087-ae59-d5e790655810" class="">          → When you compare two values, the expression is evaluated and Python returns the Boolean answer:</p><p id="1a65a1d7-dea4-80d1-a23b-df00c3540a7a" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a65a1d7-dea4-80d6-8a86-c5ac9ae90c99" class="code"><code class="language-Python">print(10 &gt; 9)
+print(10 == 9)
+print(10 &lt; 9)
+
+# Output
+True
+False
+False</code></pre><p id="1a65a1d7-dea4-8066-9169-fc8dc81bb82b" class="">
+</p><p id="1a65a1d7-dea4-80d9-bfd7-d05b104e530a" class=""><em><strong>Evaluate Values and Variables :</strong></em></p><p id="1a65a1d7-dea4-80e4-9104-e51999ca3636" class="">         → The <code>bool()</code> function allows you to evaluate any value, and give you <code>True</code> or <code>False</code> in return,</p><p id="1a65a1d7-dea4-8023-b03e-f1dde95e4176" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a65a1d7-dea4-80c6-873f-d0c10ead1e76" class="code"><code class="language-Python">print(bool(&quot;Hello&quot;))
+print(bool(15))
+
+True
+True</code></pre><p id="1a65a1d7-dea4-80f4-9eed-ce1a5e83aa3d" class="">
+</p><p id="1a65a1d7-dea4-801a-8e81-c9526cd50056" class=""><em><strong>Most Values are True :</strong></em></p><p id="1a65a1d7-dea4-80cd-8be4-d04efef2b43a" class="">             → Almost any value is evaluated to <code>True</code> if it has some sort of content.</p><p id="1a65a1d7-dea4-80c2-b819-c66bcdff8a9f" class="">             → Any string is <code>True</code>, except empty strings.</p><p id="1a65a1d7-dea4-80d4-95cc-f886b4be8ad3" class="">             → Any number is <code>True</code>, except <code>0</code>.</p><p id="1a65a1d7-dea4-80ca-b459-dd4b87786bf3" class="">             → Any list, tuple, set, and dictionary are <code>True</code>, except empty ones.</p><p id="1a65a1d7-dea4-80de-86a4-c47601e663ac" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a65a1d7-dea4-80bc-b0c9-ea966ad8c6e9" class="code"><code class="language-Python">print(bool(&quot;abc&quot;))
+print(bool(123))
+print(bool([&quot;apple&quot;, &quot;cherry&quot;, &quot;banana&quot;]))
+
+# Output
+True
+True
+True</code></pre><p id="1a65a1d7-dea4-809e-8124-ee3bc0d31f12" class="">
+</p><p id="1a65a1d7-dea4-800d-a312-f387b13189ef" class=""><em><strong>Some Values are False :</strong></em></p><p id="1a65a1d7-dea4-8017-82a8-e186e1d8b510" class="">                           → In fact, there are not many values that evaluate to <code>False</code>, except empty values, such as <code>()</code>, <code>[]</code>, <code>{}</code>, <code>&quot;&quot;</code>, the number <code>0</code>, and the value <code>None</code>. And of course the value <code>False</code> evaluates to <code>False</code>.</p><p id="1a65a1d7-dea4-80e3-b6de-d1393c317916" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a65a1d7-dea4-8022-aeaf-ed9c4dc92488" class="code"><code class="language-Python">print(bool(False))
+print(bool(None))
+print(bool(0))
+print(bool(&quot;&quot;))
+print(bool(()))
+print(bool([]))
+print(bool({}))
+
+# Output
+False
+False
+False
+False
+False
+False
+False</code></pre><p id="1a65a1d7-dea4-8028-b694-f0de6fcffea9" class="">
+</p></details></li></ul><p id="1a45a1d7-dea4-8006-a6d8-f66954963262" class="">
+</p><ul id="1a45a1d7-dea4-800c-b2d0-f553f8f0232a" class="toggle"><li><details open=""><summary><em><strong>Python Operators ?</strong></em></summary><p id="1a45a1d7-dea4-802f-b488-ced9eb1898b4" class="">         → Operators are used to perform operations on variables and values.</p><p id="1a45a1d7-dea4-8064-8014-e3f76e7e352a" class="">
+</p><p id="1a45a1d7-dea4-80c6-ba5f-e37701507307" class="">Python divides the operators in the following groups:</p><ul id="1a45a1d7-dea4-809c-8b58-d5ca303bbed4" class="bulleted-list"><li style="list-style-type:disc">Arithmetic operators</li></ul><ul id="1a45a1d7-dea4-80fb-8945-ee16cb139077" class="bulleted-list"><li style="list-style-type:disc">Assignment operators</li></ul><ul id="1a45a1d7-dea4-8099-b407-f407d411522c" class="bulleted-list"><li style="list-style-type:disc">Comparison operators</li></ul><ul id="1a45a1d7-dea4-8068-820f-e5bfa21f7f2e" class="bulleted-list"><li style="list-style-type:disc">Logical operators</li></ul><ul id="1a45a1d7-dea4-8046-acdc-db74958df40b" class="bulleted-list"><li style="list-style-type:disc">Identity operators</li></ul><ul id="1a45a1d7-dea4-80ea-8d82-ed298aef1e5a" class="bulleted-list"><li style="list-style-type:disc">Membership operators</li></ul><ul id="1a45a1d7-dea4-8030-9afc-d0d6384c2d54" class="bulleted-list"><li style="list-style-type:disc">Bitwise operators</li></ul><p id="1a45a1d7-dea4-8067-bac3-ccb93014f4bb" class="">
+</p><h3 id="1a45a1d7-dea4-80e6-a437-c4e630033fc3" class=""><em>Python Arithmetic Operators</em></h3><p id="1a45a1d7-dea4-80d8-b3d9-e207a7f21f93" class="">          →   Arithmetic operators are used with numeric values to perform common mathematical operations:</p><table id="1a45a1d7-dea4-80fc-886a-fabb1e57b3f4" class="simple-table"><thead class="simple-table-header"><tr id="1a45a1d7-dea4-80c5-889f-edb88dc11587"><th id="gpw~" class="simple-table-header-color simple-table-header" style="width:374px">Operator</th><th id="Fhru" class="simple-table-header-color simple-table-header" style="width:466px">Name</th><th id="vmM~" class="simple-table-header-color simple-table-header" style="width:428px">Example</th></tr></thead><tbody><tr id="1a45a1d7-dea4-8040-b9b6-da71b4301a5a"><td id="gpw~" class="" style="width:374px">+</td><td id="Fhru" class="" style="width:466px">Addition</td><td id="vmM~" class="" style="width:428px">x + y</td></tr><tr id="1a45a1d7-dea4-804c-87aa-cc876621716d"><td id="gpw~" class="" style="width:374px">-</td><td id="Fhru" class="" style="width:466px">Subtraction</td><td id="vmM~" class="" style="width:428px">x - y</td></tr><tr id="1a45a1d7-dea4-8088-9683-e1770982eca4"><td id="gpw~" class="" style="width:374px">*</td><td id="Fhru" class="" style="width:466px">Multiplication</td><td id="vmM~" class="" style="width:428px">x * y</td></tr><tr id="1a45a1d7-dea4-807a-9aec-c59af0060eea"><td id="gpw~" class="" style="width:374px">/</td><td id="Fhru" class="" style="width:466px">Division</td><td id="vmM~" class="" style="width:428px">x / y</td></tr><tr id="1a45a1d7-dea4-8071-8f87-da933dde47b5"><td id="gpw~" class="" style="width:374px">%</td><td id="Fhru" class="" style="width:466px">Modulus</td><td id="vmM~" class="" style="width:428px">x % y</td></tr><tr id="1a45a1d7-dea4-80da-ac51-f7a6885d774a"><td id="gpw~" class="" style="width:374px">**</td><td id="Fhru" class="" style="width:466px">Exponentiation</td><td id="vmM~" class="" style="width:428px">x ** y</td></tr><tr id="1a45a1d7-dea4-805e-9db5-ceca0cd50202"><td id="gpw~" class="" style="width:374px">//</td><td id="Fhru" class="" style="width:466px">Floor division</td><td id="vmM~" class="" style="width:428px">x // y</td></tr></tbody></table><h3 id="1a45a1d7-dea4-80c0-9e06-c3305e0ac744" class=""><em><strong>Python Assignment Operators</strong></em></h3><p id="1a45a1d7-dea4-80ff-8e4e-d4c080dcccba" class="">      → Assignment operators are used to assign values to variables:</p><table id="1a45a1d7-dea4-80c9-a48b-c23f56317fef" class="simple-table"><thead class="simple-table-header"><tr id="1a45a1d7-dea4-8049-b8cb-ee8a7ad965ba"><th id="vhaw" class="simple-table-header-color simple-table-header" style="width:378px">Operator</th><th id="Q@&gt;E" class="simple-table-header-color simple-table-header" style="width:469px">Example</th><th id="gIUw" class="simple-table-header-color simple-table-header" style="width:425px">Same As</th></tr></thead><tbody><tr id="1a45a1d7-dea4-80d6-b79a-f60ea30b0fcd"><td id="vhaw" class="" style="width:378px">=</td><td id="Q@&gt;E" class="" style="width:469px">x = 5</td><td id="gIUw" class="" style="width:425px">x = 5</td></tr><tr id="1a45a1d7-dea4-808f-8088-fd14daad505a"><td id="vhaw" class="" style="width:378px">+=</td><td id="Q@&gt;E" class="" style="width:469px">x += 3</td><td id="gIUw" class="" style="width:425px">x = x + 3</td></tr><tr id="1a45a1d7-dea4-80df-bca6-dbcbbc37bd50"><td id="vhaw" class="" style="width:378px">-=</td><td id="Q@&gt;E" class="" style="width:469px">x -= 3</td><td id="gIUw" class="" style="width:425px">x = x - 3</td></tr><tr id="1a45a1d7-dea4-8014-89a5-f534f5d78242"><td id="vhaw" class="" style="width:378px">*=</td><td id="Q@&gt;E" class="" style="width:469px">x *= 3</td><td id="gIUw" class="" style="width:425px">x = x * 3</td></tr><tr id="1a45a1d7-dea4-807a-bdbd-d5f110735a01"><td id="vhaw" class="" style="width:378px">/=</td><td id="Q@&gt;E" class="" style="width:469px">x /= 3</td><td id="gIUw" class="" style="width:425px">x = x / 3</td></tr><tr id="1a45a1d7-dea4-8015-8d47-da5252558d53"><td id="vhaw" class="" style="width:378px">%=</td><td id="Q@&gt;E" class="" style="width:469px">x %= 3</td><td id="gIUw" class="" style="width:425px">x = x % 3</td></tr><tr id="1a45a1d7-dea4-8002-a5b0-ed71e4607aa0"><td id="vhaw" class="" style="width:378px">//=</td><td id="Q@&gt;E" class="" style="width:469px">x //= 3</td><td id="gIUw" class="" style="width:425px">x = x // 3</td></tr><tr id="1a45a1d7-dea4-80d0-ba68-d2efc080d465"><td id="vhaw" class="" style="width:378px">**=</td><td id="Q@&gt;E" class="" style="width:469px">x **= 3</td><td id="gIUw" class="" style="width:425px">x = x ** 3</td></tr><tr id="1a45a1d7-dea4-808e-bcf0-d51e734c3dca"><td id="vhaw" class="" style="width:378px">&amp;=</td><td id="Q@&gt;E" class="" style="width:469px">x &amp;= 3</td><td id="gIUw" class="" style="width:425px">x = x &amp; 3</td></tr><tr id="1a45a1d7-dea4-80b7-ba96-ee236538d65e"><td id="vhaw" class="" style="width:378px">`</td><td id="Q@&gt;E" class="" style="width:469px">=`</td><td id="gIUw" class="" style="width:425px">`x</td></tr><tr id="1a45a1d7-dea4-8058-a532-dac9927c7fd0"><td id="vhaw" class="" style="width:378px">^=</td><td id="Q@&gt;E" class="" style="width:469px">x ^= 3</td><td id="gIUw" class="" style="width:425px">x = x ^ 3</td></tr><tr id="1a45a1d7-dea4-80d5-83fe-ebad9cfdcc2b"><td id="vhaw" class="" style="width:378px">&gt;≥</td><td id="Q@&gt;E" class="" style="width:469px">x &gt;&gt;= 3</td><td id="gIUw" class="" style="width:425px">x = x &gt;&gt; 3</td></tr><tr id="1a45a1d7-dea4-8013-ba7d-e9502c49f830"><td id="vhaw" class="" style="width:378px">&lt;≤</td><td id="Q@&gt;E" class="" style="width:469px">x &lt;&lt;= 3</td><td id="gIUw" class="" style="width:425px">x = x &lt;&lt; 3</td></tr><tr id="1a45a1d7-dea4-80a1-bb5d-c4b73d69f194"><td id="vhaw" class="" style="width:378px">:=</td><td id="Q@&gt;E" class="" style="width:469px">x := 3</td><td id="gIUw" class="" style="width:425px">x = 3</td></tr></tbody></table><h3 id="1a45a1d7-dea4-8040-89d3-d7840c8de088" class=""><em><strong>Python Comparison Operators</strong></em></h3><p id="1a45a1d7-dea4-8097-8cda-fc7369298893" class="">          → Comparison operators are used to compare two values:</p><table id="1a45a1d7-dea4-80f9-a290-cc182f515d63" class="simple-table"><thead class="simple-table-header"><tr id="1a45a1d7-dea4-80f1-80a2-cc4135e94903"><th id="hi^G" class="simple-table-header-color simple-table-header" style="width:380px">Operator</th><th id="_b=S" class="simple-table-header-color simple-table-header" style="width:474px">Name</th><th id="ou=T" class="simple-table-header-color simple-table-header" style="width:424px">Example</th></tr></thead><tbody><tr id="1a45a1d7-dea4-800d-9199-d3874afdcb16"><td id="hi^G" class="" style="width:380px">==</td><td id="_b=S" class="" style="width:474px">Equal</td><td id="ou=T" class="" style="width:424px">x == y</td></tr><tr id="1a45a1d7-dea4-8077-b125-d6428263723b"><td id="hi^G" class="" style="width:380px">≠</td><td id="_b=S" class="" style="width:474px">Not equal</td><td id="ou=T" class="" style="width:424px">x != y</td></tr><tr id="1a45a1d7-dea4-80c3-ba09-dff3ff162e81"><td id="hi^G" class="" style="width:380px">&gt;</td><td id="_b=S" class="" style="width:474px">Greater than</td><td id="ou=T" class="" style="width:424px">x &gt; y</td></tr><tr id="1a45a1d7-dea4-8054-8576-d9123b89fe7c"><td id="hi^G" class="" style="width:380px">&lt;</td><td id="_b=S" class="" style="width:474px">Less than</td><td id="ou=T" class="" style="width:424px">x &lt; y</td></tr><tr id="1a45a1d7-dea4-80f9-a96f-f6bc2935a7a8"><td id="hi^G" class="" style="width:380px">≥</td><td id="_b=S" class="" style="width:474px">Greater than or equal to</td><td id="ou=T" class="" style="width:424px">x &gt;= y</td></tr><tr id="1a45a1d7-dea4-80b7-8ca9-f6fb069033ff"><td id="hi^G" class="" style="width:380px">≤</td><td id="_b=S" class="" style="width:474px">Less than or equal to</td><td id="ou=T" class="" style="width:424px">x &lt;= y</td></tr></tbody></table><h3 id="1a45a1d7-dea4-80a7-b9c3-dda320dbcf20" class=""><em><strong>Python Logical Operators</strong></em></h3><p id="1a45a1d7-dea4-8059-8efc-f32453d5990e" class="">         → Logical operators are used to combine conditional statements:</p><table id="1a45a1d7-dea4-80a2-b938-d4a1effb7fa9" class="simple-table"><thead class="simple-table-header"><tr id="1a45a1d7-dea4-80c6-8ac4-d3de451f26d6"><th id="tt?q" class="simple-table-header-color simple-table-header" style="width:379px"><strong>Operator</strong></th><th id="rvVn" class="simple-table-header-color simple-table-header" style="width:481px"><strong>Description</strong></th><th id="SP\a" class="simple-table-header-color simple-table-header" style="width:418px"><strong>Example</strong></th></tr></thead><tbody><tr id="1a45a1d7-dea4-8085-9ba1-ed41bfd4098d"><td id="tt?q" class="" style="width:379px">and</td><td id="rvVn" class="" style="width:481px">Returns “True” if both statements are true </td><td id="SP\a" class="" style="width:418px">x &lt; 5 and x &lt; 10</td></tr><tr id="1a45a1d7-dea4-809a-9ef6-e55d52164876"><td id="tt?q" class="" style="width:379px">or</td><td id="rvVn" class="" style="width:481px">Returns “True” if at least one of the statements is true</td><td id="SP\a" class="" style="width:418px">x &lt; 5 or x &lt; 4</td></tr><tr id="1a45a1d7-dea4-8043-8f26-ebd6136b2133"><td id="tt?q" class="" style="width:379px">not</td><td id="rvVn" class="" style="width:481px">Reverses the result, returns “False” if the result is true</td><td id="SP\a" class="" style="width:418px">not(x &lt; 5 and x &lt; 10)</td></tr></tbody></table><h3 id="1a45a1d7-dea4-806e-af65-f3fecd19f77e" class=""><em><strong>Python Identity Operators</strong></em></h3><p id="1a45a1d7-dea4-80fb-90e3-f0e121c20ea5" class="">               → Identity operators are used to compare the objects, not if they are equal, but if they are actually the same object, with the same memory location:</p><table id="1a45a1d7-dea4-803b-a038-c76c5252fec9" class="simple-table"><thead class="simple-table-header"><tr id="1a45a1d7-dea4-80d0-830a-dddb50090144"><th id="Acrb" class="simple-table-header-color simple-table-header" style="width:383px">Operator</th><th id=";\&lt;X" class="simple-table-header-color simple-table-header" style="width:486px">Description</th><th id="Nm^f" class="simple-table-header-color simple-table-header" style="width:404px">Example</th></tr></thead><tbody><tr id="1a45a1d7-dea4-8043-8701-d464bc2f0831"><td id="Acrb" class="" style="width:383px">is</td><td id=";\&lt;X" class="" style="width:486px">Returns  “True” if both variables point to the same object</td><td id="Nm^f" class="" style="width:404px">x is y</td></tr><tr id="1a45a1d7-dea4-80d6-8c45-c7e80b02b1f5"><td id="Acrb" class="" style="width:383px">is not</td><td id=";\&lt;X" class="" style="width:486px">Returns “True” if both variables do not point to the same object</td><td id="Nm^f" class="" style="width:404px">x is not y</td></tr></tbody></table><h3 id="1a45a1d7-dea4-80d8-be33-e7516f01931b" class=""><em><strong>Python Membership Operators</strong></em></h3><p id="1a45a1d7-dea4-80bc-8730-c4c3f81c4f7f" class="">                          → Membership operators are used to test if a sequence is presented in an object:</p><table id="1a45a1d7-dea4-80cd-b742-eec466a96a55" class="simple-table"><thead class="simple-table-header"><tr id="1a45a1d7-dea4-8028-96f1-d11a80a4019a"><th id="d&lt;IH" class="simple-table-header-color simple-table-header" style="width:326px">Operator</th><th id="cYi}" class="simple-table-header-color simple-table-header" style="width:547px">Description</th><th id="?n|`" class="simple-table-header-color simple-table-header" style="width:403px">Example</th></tr></thead><tbody><tr id="1a45a1d7-dea4-8023-938e-f51cc7e05d89"><td id="d&lt;IH" class="" style="width:326px">in</td><td id="cYi}" class="" style="width:547px">Returns “True” if a sequence with the specified value is present in the object</td><td id="?n|`" class="" style="width:403px">x in y</td></tr><tr id="1a45a1d7-dea4-803a-b6bf-fded86c8f3e3"><td id="d&lt;IH" class="" style="width:326px">not in</td><td id="cYi}" class="" style="width:547px">Returns “True”if a sequence with the specified value is not present in the object</td><td id="?n|`" class="" style="width:403px">x not in y</td></tr></tbody></table><h3 id="1a45a1d7-dea4-8069-9950-fed981bfdf32" class=""><em><strong>Python Bitwise Operators</strong></em></h3><p id="1a45a1d7-dea4-80dc-a078-d338c08cc5ae" class="">                       → Bitwise operators are used to compare (binary) numbers:</p><table id="1a45a1d7-dea4-803f-bb48-e050faea950c" class="simple-table"><thead class="simple-table-header"><tr id="1a45a1d7-dea4-80ba-8295-e5be5b2c4303"><th id="PLI}" class="simple-table-header-color simple-table-header" style="width:226px">Operator</th><th id="&lt;lwf" class="simple-table-header-color simple-table-header" style="width:194px">Name</th><th id="jb&gt;v" class="simple-table-header-color simple-table-header" style="width:475px">Description</th><th id="l~fo" class="simple-table-header-color simple-table-header" style="width:380px"><strong>Example</strong></th></tr></thead><tbody><tr id="1a45a1d7-dea4-8086-968c-dfeac760184d"><td id="PLI}" class="" style="width:226px">&amp;</td><td id="&lt;lwf" class="" style="width:194px">AND</td><td id="jb&gt;v" class="" style="width:475px">Sets each bit to <code>1</code> if both bits are <code>1</code></td><td id="l~fo" class="" style="width:380px"><code>x &amp; y</code></td></tr><tr id="1a45a1d7-dea4-80a5-9ab1-f2ae311ecc6f"><td id="PLI}" class="" style="width:226px">|</td><td id="&lt;lwf" class="" style="width:194px">OR</td><td id="jb&gt;v" class="" style="width:475px">Sets each bit to 1 if one of two bits is 1</td><td id="l~fo" class="" style="width:380px">x | y</td></tr><tr id="1a45a1d7-dea4-801c-901b-e3c9f0e774ed"><td id="PLI}" class="" style="width:226px">^</td><td id="&lt;lwf" class="" style="width:194px">XOR</td><td id="jb&gt;v" class="" style="width:475px">Sets each bit to 1 if only one of two bits is 1</td><td id="l~fo" class="" style="width:380px">x ^ y</td></tr><tr id="1a45a1d7-dea4-803a-bbb1-f4514392ba6c"><td id="PLI}" class="" style="width:226px">~</td><td id="&lt;lwf" class="" style="width:194px">NOT</td><td id="jb&gt;v" class="" style="width:475px">Inverts all the bits</td><td id="l~fo" class="" style="width:380px">~x</td></tr><tr id="1a45a1d7-dea4-80bc-a6c4-e5d96cfafcf9"><td id="PLI}" class="" style="width:226px">&lt;&lt;</td><td id="&lt;lwf" class="" style="width:194px">Zero fill left shift</td><td id="jb&gt;v" class="" style="width:475px">Shift left by pushing zeros in from the right and let the leftmost bits fall off</td><td id="l~fo" class="" style="width:380px">x &lt;&lt; 2</td></tr><tr id="1a45a1d7-dea4-80fa-8df9-fcc0e1ee810e"><td id="PLI}" class="" style="width:226px">&gt;&gt;</td><td id="&lt;lwf" class="" style="width:194px">Signed right shift</td><td id="jb&gt;v" class="" style="width:475px">Shift right by pushing copies of the leftmost bit in from the left, and let the rightmost bits fall off</td><td id="l~fo" class="" style="width:380px">x &gt;&gt; 2</td></tr></tbody></table><p id="1a45a1d7-dea4-808c-a6a9-f2da41cc707f" class="">
+</p></details></li></ul><p id="1a55a1d7-dea4-8065-b88a-d9d693b76692" class="">
+</p><ul id="1a55a1d7-dea4-8068-98d5-fe5ecf1467ca" class="toggle"><li><details open=""><summary><em><strong>Python Lists ?</strong></em></summary><p id="1a55a1d7-dea4-805c-b122-f2739aa5e8c7" class=""><em><strong>List :</strong></em></p><p id="1a55a1d7-dea4-8065-a652-d82715232612" class="">   →  Lists are used to store multiple items in a single variable. Lists are created using square brackets:</p><p id="1a55a1d7-dea4-80a5-9aa9-fb5a951490da" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a55a1d7-dea4-8046-90d4-dd22606b0e93" class="code"><code class="language-Python"># Syntax
+names = [&quot;sanjai&quot;, &quot;kannan&quot;, &quot;gokul&quot;]
+print(names)
+
+# Output
+[&#x27;sanjai&#x27;, &#x27;kannan&#x27;, &#x27;gokul&#x27;]</code></pre><p id="1a55a1d7-dea4-802d-8d9e-d7935b904ac6" class="">
+</p><p id="1a55a1d7-dea4-8028-bb88-c1d0d225023b" class=""><em><strong>List Items :</strong></em></p><p id="1a55a1d7-dea4-801e-af50-f769d57f0610" class="">        → List items are <span style="border-bottom:0.05em solid">ordered, changeable, and allow duplicate values</span>.  List items are indexed, the first item has index <code>[0]</code>, the second item has index <code>[1]</code> etc.</p><p id="1a55a1d7-dea4-8081-9500-cdec8f38691e" class=""><em><strong>Ordered :</strong></em></p><p id="1a55a1d7-dea4-8051-8c86-cc5b661e2c28" class="">         → When we say that lists are ordered, it means that the items have a defined order, and that <span style="border-bottom:0.05em solid">order will not change.</span></p><p id="1a55a1d7-dea4-8007-b7f1-d62a9d320d07" class="">         → If you add new items to a list, <span style="border-bottom:0.05em solid">the new items will be placed at the end of the list</span>.</p><p id="1a55a1d7-dea4-800b-a571-fc0450ccba04" class=""><em><strong>Changeable :</strong></em></p><p id="1a55a1d7-dea4-8022-9120-d7390d447db0" class="">          → The list is changeable, meaning that <span style="border-bottom:0.05em solid">we can change, add, and remove items in a list</span> after it has been created.</p><p id="1a55a1d7-dea4-8082-9409-e883d8f7e99e" class=""><em><strong>Allow Duplicates :</strong></em></p><p id="1a55a1d7-dea4-8052-bc84-d98e920336b3" class="">          → Since lists are indexed, <span style="border-bottom:0.05em solid">lists can have items with the same value</span>.</p><p id="1a55a1d7-dea4-80dd-9d6b-fed15fd5350e" class="">
+</p><ul id="1a55a1d7-dea4-803b-88ec-cae73f64e006" class="toggle"><li><details open=""><summary><em><strong>Access List Items :</strong></em></summary><p id="1a55a1d7-dea4-8091-8c1e-c0aee93525ea" class=""><em><strong>Access Items :</strong></em></p><p id="1a55a1d7-dea4-802c-9d87-fd26c4238954" class="">     → List items are indexed and you can <span style="border-bottom:0.05em solid">access them by referring to the index number:</span></p><p id="1a55a1d7-dea4-801c-b249-d902051cff56" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a55a1d7-dea4-80c0-980b-ca1d8da2ab1e" class="code"><code class="language-Python">names = [&quot;sanjai&quot;, &quot;kannan&quot;, &quot;gokul&quot;, &quot;Kannan&quot;, &quot;guna&quot;, &quot;suja&quot;]
+print(names[1])
+
+# Output
+kannan</code></pre><p id="1a55a1d7-dea4-80c0-9993-c290159ba23a" class="">
+</p><hr id="1a55a1d7-dea4-8095-a5a3-d5d183b43e90"/><p id="1a55a1d7-dea4-807b-acb5-fa1f8ac9e76a" class=""><em><strong>Negative Indexing :</strong></em></p><p id="1a55a1d7-dea4-8009-a824-de8a1c8fd3b7" class="">         → Negative indexing means start from the end</p><p id="1a55a1d7-dea4-80b1-b308-c482643426ba" class="">         → <code>1</code> refers to the last item, <code>2</code> refers to the second last item etc.</p><p id="1a55a1d7-dea4-80c9-be54-d72d179d2243" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a55a1d7-dea4-803c-b381-c7cddb735c0f" class="code"><code class="language-Python">names = [&quot;sanjai&quot;, &quot;kannan&quot;, &quot;gokul&quot;, &quot;Kannan&quot;, &quot;guna&quot;, &quot;suja&quot;]
+print(names[-1])
+
+# Output
+suja</code></pre><p id="1a55a1d7-dea4-80d4-be7d-e1d0de3cd18a" class="">
+</p><hr id="1a55a1d7-dea4-80ca-b6df-c8e3f87b9c10"/><p id="1a55a1d7-dea4-8038-ab25-dc4a9da5e70b" class=""><em><strong>Range of Indexes :</strong></em></p><p id="1a55a1d7-dea4-8021-88bc-eb4f0d262e81" class="">            → You can specify a <span style="border-bottom:0.05em solid">range of indexes by specifying where to start and where to end the range.</span></p><p id="1a55a1d7-dea4-80b4-b76c-d4cf2fa1f2cb" class="">            → When specifying a range, the <span style="border-bottom:0.05em solid">return value will be a new list</span> with the specified items.</p><p id="1a55a1d7-dea4-8086-b731-da5b7aa492ce" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a55a1d7-dea4-8082-a41f-ebe8ec30cd2a" class="code"><code class="language-Python">names = [&quot;sanjai&quot;, &quot;kannan&quot;, &quot;gokul&quot;, &quot;Kannan&quot;, &quot;guna&quot;, &quot;suja&quot;]
+print(names[1:4])
+
+# Output
+[&#x27;kannan&#x27;, &#x27;gokul&#x27;, &#x27;Kannan&#x27;]</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a55a1d7-dea4-80e0-af92-d86e7f81b380" class="code"><code class="language-Python">names = [&quot;sanjai&quot;, &quot;kannan&quot;, &quot;gokul&quot;, &quot;Kannan&quot;, &quot;guna&quot;, &quot;suja&quot;]
+print(names[:2])
+
+# Output
+[&#x27;sanjai&#x27;, &#x27;kannan&#x27;]</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a55a1d7-dea4-807a-b423-ea75789d9d74" class="code"><code class="language-Python">names = [&quot;sanjai&quot;, &quot;kannan&quot;, &quot;gokul&quot;, &quot;Kannan&quot;, &quot;guna&quot;, &quot;suja&quot;]
+print(names[2:])
+
+# Output
+[&#x27;gokul&#x27;, &#x27;Kannan&#x27;, &#x27;guna&#x27;, &#x27;suja&#x27;]</code></pre><p id="1a55a1d7-dea4-8006-bc6b-e67f5e2f3bec" class="">
+</p><hr id="1a55a1d7-dea4-80dc-91e6-ea204cd0132d"/><p id="1a55a1d7-dea4-8091-b72a-cd49946e6402" class=""><em><strong>Range of Negative Indexes :</strong></em></p><p id="1a55a1d7-dea4-8072-b5f9-e1eb024aa525" class="">         → Specify negative indexes if you want to start the search from the end of the list:</p><p id="1a55a1d7-dea4-8040-b6ae-fc88ce500ef9" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a55a1d7-dea4-80dc-95be-de488086cb10" class="code"><code class="language-Python">names = [&quot;sanjai&quot;, &quot;kannan&quot;, &quot;gokul&quot;, &quot;Kannan&quot;, &quot;guna&quot;, &quot;suja&quot;]
+print(names[-4:-1])
+
+# Output
+[&#x27;gokul&#x27;, &#x27;Kannan&#x27;, &#x27;guna&#x27;]</code></pre><p id="1a55a1d7-dea4-807f-a738-f8aca59f4b44" class="">
+</p><hr id="1a55a1d7-dea4-8007-8dd6-e9cf9436a1e8"/><p id="1a55a1d7-dea4-8000-bfdd-e5ff71c5f7f2" class=""><em><strong>Check if Item Exists :</strong></em></p><p id="1a55a1d7-dea4-8030-84a2-e4fb60b65162" class="">         → To determine if a specified item is present in a list use the <code>in</code> keyword:</p><p id="1a55a1d7-dea4-80b4-b935-df0f36f0cc6d" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a55a1d7-dea4-802c-a9e0-e20012759cfe" class="code"><code class="language-Python">names = [&quot;sanjai&quot;, &quot;kannan&quot;, &quot;gokul&quot;, &quot;Kannan&quot;, &quot;guna&quot;, &quot;suja&quot;]
+if &quot;gokul&quot; in names:
+    print(&quot;yes&quot;)
+else:
+    print(&quot;no&quot;)
+    
+# Output
+yes</code></pre><p id="1a55a1d7-dea4-80d1-9db3-f281222ae0eb" class="">
+</p></details></li></ul><p id="1a55a1d7-dea4-80dd-87bd-cbb438642cb0" class="">
+</p><ul id="1a55a1d7-dea4-804d-80d1-c20c1d4dd3d7" class="toggle"><li><details open=""><summary><em><strong>Change List Items :</strong></em></summary><p id="1a55a1d7-dea4-80c8-abbd-f1ced6f96964" class=""><em><strong>Change Value :</strong></em></p><p id="1a55a1d7-dea4-80a1-bc21-d0e859ef059f" class="">             → To change the value of a specific item, refer to the index number:</p><p id="1a55a1d7-dea4-80d0-a2cd-db9b5a67f202" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a55a1d7-dea4-80e6-93e9-e15510c8e3d8" class="code"><code class="language-Python">names = [&quot;sanjai&quot;, &quot;kannan&quot;, &quot;gokul&quot;, &quot;Kannan&quot;, &quot;guna&quot;, &quot;suja&quot;]
+names[1] = &quot;kannanChanged&quot;
+print(names)
+
+# Output
+[&#x27;sanjai&#x27;, &#x27;kannanChanged&#x27;, &#x27;gokul&#x27;, &#x27;Kannan&#x27;, &#x27;guna&#x27;, &#x27;suja&#x27;]</code></pre><p id="1a55a1d7-dea4-8043-bbef-ccc02d12509a" class="">
+</p><hr id="1a55a1d7-dea4-80a8-8b90-de2ca445ec8b"/><p id="1a55a1d7-dea4-801e-83a4-f6b925de3bee" class=""><em><strong>Change a Range of Item Values :</strong></em></p><p id="1a55a1d7-dea4-8068-8baa-eb1732e1f791" class="">             → To change the value of items within a specific range, define a list with the new values, and refer to the range of index numbers where you want to insert the new values:</p><p id="1a55a1d7-dea4-8059-b075-eda91ccbf02e" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a55a1d7-dea4-80a0-b9b8-e321e3d88a60" class="code"><code class="language-Python">names = [&quot;sanjai&quot;, &quot;kannan&quot;, &quot;gokul&quot;, &quot;Kannan&quot;, &quot;guna&quot;, &quot;suja&quot;]
+names[1:3] = [&quot;kannanChanged&quot;, &quot;gokulChanged&quot;]
+print(names)
+
+# Output
+[&#x27;sanjai&#x27;, &#x27;kannanChanged&#x27;, &#x27;gokulChanged&#x27;, &#x27;Kannan&#x27;, &#x27;guna&#x27;, &#x27;suja&#x27;]</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a55a1d7-dea4-809b-ae7c-e37573e14b85" class="code"><code class="language-Python">names = [&quot;sanjai&quot;, &quot;kannan&quot;, &quot;gokul&quot;, &quot;Kannan&quot;, &quot;guna&quot;, &quot;suja&quot;]
+names[1] = [&quot;kannanChanged&quot;, &quot;kannanChanged&quot;]
+print(names)
+
+# Output
+[&#x27;sanjai&#x27;, [&#x27;kannanChanged&#x27;, &#x27;kannanChanged&#x27;], &#x27;gokul&#x27;, &#x27;Kannan&#x27;, &#x27;guna&#x27;, &#x27;suja&#x27;]</code></pre><p id="1a55a1d7-dea4-808d-8a55-c6f616f8b0fe" class="">
+</p><hr id="1a55a1d7-dea4-801e-b45b-f76931c7aa4c"/><p id="1a55a1d7-dea4-802b-9a9c-fbbbb04abe6e" class=""><em><strong>Insert Items :</strong></em></p><p id="1a55a1d7-dea4-8053-9912-df9c0ca13122" class="">               → To insert a new list item, without replacing any of the existing values, we can use the <code>insert()</code> method.</p><p id="1a55a1d7-dea4-80c4-bb2b-ca6faa42fa14" class="">               → The <code>insert()</code> method inserts an item at the specified index:</p><p id="1a55a1d7-dea4-8074-a053-e16e56873178" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a55a1d7-dea4-8045-92eb-df6a4005c841" class="code"><code class="language-Python">names = [&quot;sanjai&quot;, &quot;kannan&quot;, &quot;gokul&quot;, &quot;Kannan&quot;, &quot;guna&quot;, &quot;suja&quot;]
+names.insert(2, &quot;kannanNameChangedToSK&quot;)
+print(names)
+
+# Output
+[&#x27;sanjai&#x27;, &#x27;kannan&#x27;, &#x27;kannanNameChangedToSK&#x27;, &#x27;gokul&#x27;, &#x27;Kannan&#x27;, &#x27;guna&#x27;, &#x27;suja&#x27;]</code></pre><p id="1a55a1d7-dea4-80b7-b099-d8c4cc50580c" class="">
+</p></details></li></ul><p id="1a55a1d7-dea4-8065-9b0d-f88f8a42f9fb" class="">
+</p><ul id="1a55a1d7-dea4-80bb-8441-d291fa28c8c4" class="toggle"><li><details open=""><summary><em><strong>Add List Items :</strong></em></summary><p id="1a55a1d7-dea4-809f-901a-d4f53a78e8e0" class=""><em><strong>Append Items :</strong></em></p><p id="1a55a1d7-dea4-807e-b7a1-f6baec83b1ad" class="">         → To <span style="border-bottom:0.05em solid">add an item to the end of the list</span>, use the append() method:</p><p id="1a55a1d7-dea4-80ee-9e05-e3e4311495b6" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a55a1d7-dea4-806d-ba29-c32b0e01b9a0" class="code"><code class="language-Python">names = [&quot;sanjai&quot;, &quot;kannan&quot;, &quot;gokul&quot;, &quot;Kannan&quot;, &quot;guna&quot;, &quot;suja&quot;]
+names.append(&quot;appendedName&quot;)
+print(names)
+
+# Output
+[&#x27;sanjai&#x27;, &#x27;kannan&#x27;, &#x27;gokul&#x27;, &#x27;Kannan&#x27;, &#x27;guna&#x27;, &#x27;suja&#x27;, &#x27;appendedName&#x27;]</code></pre><p id="1a55a1d7-dea4-8040-9804-e1a5385428c2" class="">
+</p><hr id="1a55a1d7-dea4-8025-b34d-da40946cbfca"/><p id="1a55a1d7-dea4-80c8-ae88-dea6785c68e6" class=""><em><strong>Insert Items :</strong></em></p><p id="1a55a1d7-dea4-80a9-980f-ff8fb5ad97a1" class="">                → To insert a list item at a specified index, use the <code>insert()</code> method.</p><p id="1a55a1d7-dea4-8025-9611-eaca36963658" class="">                → The <code>insert()</code> method inserts an item at the specified index:</p><p id="1a55a1d7-dea4-8037-b653-c26a63913d0e" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a55a1d7-dea4-8036-9895-c9070c6abb7d" class="code"><code class="language-Python">names = [&quot;sanjai&quot;, &quot;kannan&quot;, &quot;gokul&quot;, &quot;Kannan&quot;, &quot;guna&quot;, &quot;suja&quot;]
+names.insert(1, &quot;InsertedName&quot;)
+print(names)
+
+# Output
+[&#x27;sanjai&#x27;, &#x27;InsertedName&#x27;, &#x27;kannan&#x27;, &#x27;gokul&#x27;, &#x27;Kannan&#x27;, &#x27;guna&#x27;, &#x27;suja&#x27;]</code></pre><p id="1a55a1d7-dea4-8037-858d-c84e3893e7c1" class="">
+</p><hr id="1a55a1d7-dea4-8062-9fe7-dfbe764949f7"/><p id="1a55a1d7-dea4-80f4-9bf6-f71f3a821b1b" class=""><em><strong>Extend List :</strong></em></p><p id="1a55a1d7-dea4-8012-a956-d027118fffcb" class="">              → o append elements from <em>another list</em> to the current list, use the <code>extend()</code> method.</p><p id="1a55a1d7-dea4-80a8-a770-c8b58049cb37" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a55a1d7-dea4-806c-b8dd-ebe6ba2f4a75" class="code"><code class="language-Python">first_name_list = [&quot;sanjai&quot;, &quot;kannan&quot;, &quot;gokul&quot;, &quot;Kannan&quot;, &quot;guna&quot;, &quot;suja&quot;]
+second_name_list = [&quot;Ravi&quot;, &quot;John&quot;, &quot;Doe&quot;]
+first_name_list.extend(second_name_list)
+print(first_name_list)
+
+# Output
+[&#x27;sanjai&#x27;, &#x27;kannan&#x27;, &#x27;gokul&#x27;, &#x27;Kannan&#x27;, &#x27;guna&#x27;, &#x27;suja&#x27;, &#x27;Ravi&#x27;, &#x27;John&#x27;, &#x27;Doe&#x27;]</code></pre><p id="1a55a1d7-dea4-80a8-b92d-f22e62d85b12" class="">
+</p><hr id="1a55a1d7-dea4-8092-8d92-f1ece45a8ac9"/><p id="1a55a1d7-dea4-80dd-889a-fd4f580308e5" class=""><em><strong>Add Any Iterable :</strong></em></p><p id="1a55a1d7-dea4-8036-b8a1-cfa10aed99e5" class="">                     → The <code>extend()</code> method does not have to append <em>lists</em>, you can add any iterable object (tuples, sets, dictionaries etc.).</p><p id="1a55a1d7-dea4-8024-8f02-edac37a0215b" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a55a1d7-dea4-802b-9a3a-df04061009b0" class="code"><code class="language-Python">first_name_list = [&quot;sanjai&quot;, &quot;kannan&quot;, &quot;gokul&quot;, &quot;Kannan&quot;, &quot;guna&quot;, &quot;suja&quot;]
+second_name_list = (&quot;Ravi&quot;, &quot;John&quot;, &quot;Doe&quot;)
+first_name_list.extend(second_name_list)
+print(first_name_list)
+
+# Output
+[&#x27;sanjai&#x27;, &#x27;kannan&#x27;, &#x27;gokul&#x27;, &#x27;Kannan&#x27;, &#x27;guna&#x27;, &#x27;suja&#x27;, &#x27;Ravi&#x27;, &#x27;John&#x27;, &#x27;Doe&#x27;]</code></pre></details></li></ul><p id="1a65a1d7-dea4-8090-87d7-fbeca3aa3fdd" class="">
+</p><ul id="1a65a1d7-dea4-801a-894f-f3a14303990f" class="toggle"><li><details open=""><summary><em><strong>Remove List Items :</strong></em></summary><p id="1a65a1d7-dea4-80bb-8f76-f924785848e1" class=""><em><strong>Remove Specified Item:</strong></em></p><p id="1a65a1d7-dea4-8052-9141-eb2a3b83d7d9" class="">       →  The <code>remove()</code> method removes the specified item.</p><p id="1a65a1d7-dea4-80f4-8252-d3f66789e918" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a65a1d7-dea4-8070-a8a5-e3ef75a9cab7" class="code"><code class="language-Python">names = [ &quot;sanjai&quot;, &quot;kannan&quot;, &quot;gokul&quot; ]
+names.remove(&quot;sanjai&quot;)
+print(names)
+
+# Output
+[&#x27;kannan&#x27;, &#x27;gokul&#x27;]</code></pre><p id="1a65a1d7-dea4-8049-b819-d68ded43b7d3" class="">
+</p><p id="1a65a1d7-dea4-8026-8df5-c6ef03e0106f" class=""><em><strong>Remove Specified Index :</strong></em></p><p id="1a65a1d7-dea4-80a0-8585-c6d79f18ced5" class="">         → The <code>pop()</code> method removes the specified index.</p><p id="1a65a1d7-dea4-8064-a655-df9fe995bd56" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a65a1d7-dea4-806c-a008-c5322ed2e3f9" class="code"><code class="language-Python">names = [ &quot;sanjai&quot;, &quot;kannan&quot;, &quot;gokul&quot; ]
+names.pop()           # Remove the last item
+print(names)
+
+# Output
+[&#x27;sanjai&#x27;, &#x27;kannan&#x27;]</code></pre><p id="1a65a1d7-dea4-8016-b74a-ddc71553dbb0" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a65a1d7-dea4-801f-ab36-dd4cca0236e6" class="code"><code class="language-Python">names = [ &quot;sanjai&quot;, &quot;kannan&quot;, &quot;gokul&quot; ]
+names.pop(1)           # Remove the second item
+print(names)
+
+# Output
+[&#x27;sanjai&#x27;, &#x27;gokul&#x27;]</code></pre><p id="1a65a1d7-dea4-8048-90ec-d7093dd79494" class="">
+</p><p id="1a65a1d7-dea4-8053-ad9a-f4cd0bc787a8" class="">       → The <code>del</code> keyword also removes the specified index:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a65a1d7-dea4-80e8-a811-f5a3d91eeffb" class="code"><code class="language-Python">names = [ &quot;sanjai&quot;, &quot;kannan&quot;, &quot;gokul&quot; ]
+del names[0]
+print(names)
+
+# Output
+[&#x27;kannan&#x27;, &#x27;gokul&#x27;]</code></pre><p id="1a65a1d7-dea4-8071-bf90-dd310573f9ff" class="">
+</p><p id="1a65a1d7-dea4-803a-aaf0-e7741462dfc6" class="">→  The <code>clear()</code> method empties the list. The list still remains, but it has no content.</p><p id="1a65a1d7-dea4-8054-9b48-c653a1d8154b" class=""> </p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a65a1d7-dea4-80c4-855e-d233eaad28e1" class="code"><code class="language-Python">names = [ &quot;sanjai&quot;, &quot;kannan&quot;, &quot;gokul&quot; ]
+names.clear()
+print(names)
+
+# Output
+[]</code></pre><p id="1a65a1d7-dea4-80fb-ac71-fed9caa97244" class="">
+</p><p id="1a65a1d7-dea4-8078-8c43-ca6d44666599" class="">
+</p><p id="1a65a1d7-dea4-8044-bb09-f41d3f50ff99" class="">
+</p></details></li></ul><p id="1a65a1d7-dea4-80db-b092-f9018c0b520b" class="">
+</p><ul id="1a65a1d7-dea4-807a-9655-e29933f30d95" class="toggle"><li><details open=""><summary><em><strong>Loop List :</strong></em></summary><p id="1a65a1d7-dea4-80c5-9e16-e6420e14197e" class=""><em><strong>Loop Through a List :</strong></em>         </p><p id="1a65a1d7-dea4-80c1-a0a2-d125f8969163" class="">→ You can loop through the list items by using a <code>for</code> loop:</p><p id="1a65a1d7-dea4-8043-bc29-f20c7f2e0609" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a65a1d7-dea4-807e-bb39-ef74940729af" class="code"><code class="language-Python">names = [ &quot;sanjai&quot;, &quot;kannan&quot;, &quot;gokul&quot; ]
+for x in names:
+    print(x)
+    
+# Output
+sanjai
+kannan
+gokul</code></pre><p id="1a65a1d7-dea4-803e-947c-c461783397ff" class="">
+</p><p id="1a65a1d7-dea4-804f-be62-ea765b1b5ade" class=""><em><strong>Loop Through the Index Numbers :</strong></em></p><p id="1a65a1d7-dea4-80f6-8df9-ea433c9b5c09" class="">            → You can also loop through the list items by referring to their index number.</p><p id="1a65a1d7-dea4-8025-b6ee-d31bf622b45d" class="">            → Use the <code>range()</code> and <code>len()</code> functions to create a suitable iterable</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a65a1d7-dea4-809d-80bc-de2ab22438cb" class="code"><code class="language-Python">names = [ &quot;sanjai&quot;, &quot;kannan&quot;, &quot;gokul&quot; ]
+for x in range(len(names)):
+    print(x)
+    
+# Output
+0
+1
+2</code></pre><p id="1a65a1d7-dea4-802d-8c2d-d91b2eb5e8a6" class="">
+</p><p id="1a65a1d7-dea4-804f-8fe8-c59b6c906dfa" class=""><em><strong>Using a While Loop :</strong></em></p><p id="1a65a1d7-dea4-80c6-bdc9-d7797b542604" class="">         → You can loop through the list items by using a <code>while</code> loop.</p><p id="1a65a1d7-dea4-8072-a367-fa450ad27330" class="">         → Use the <code>len()</code> function to determine the length of the list, then start at 0 and loop your way through the list items by referring to their indexes.</p><p id="1a65a1d7-dea4-802c-8add-f8e5321e76b2" class="">         → Remember to increase the index by 1 after each iteration.</p><p id="1a65a1d7-dea4-80c7-8890-ed0738aca06a" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1a65a1d7-dea4-80c2-8095-ec970d94b5b0" class="code"><code class="language-Python">names = [ &quot;sanjai&quot;, &quot;kannan&quot;, &quot;gokul&quot; ]
+i = 0
+while i &lt; len(names):
+  print(names[i])
+  i = i + 1
+  
+# Output
+sanjai
+kannan
+gokul</code></pre><p id="1a65a1d7-dea4-809d-bb0e-e5a5e49376fc" class="">
+</p><p id="1a65a1d7-dea4-805e-a787-dabc44c4e1ad" class="">
+</p><p id="1a65a1d7-dea4-80c5-99a2-c317047d5d86" class="">
+</p><p id="1a65a1d7-dea4-802b-8876-feb1ada8a278" class="">
+</p></details></li></ul><p id="1a65a1d7-dea4-8040-81e2-ff30dbe95727" class="">
+</p><p id="1a65a1d7-dea4-8080-805f-f3cdcb9e1d37" class="">
+</p><p id="1a55a1d7-dea4-8047-8372-f09c871b75df" class="">
+</p><p id="1a55a1d7-dea4-80ab-a135-fadb7ec2762d" class="">
+</p><p id="1a55a1d7-dea4-80c5-a400-f26285bea480" class="">
+</p><p id="1a55a1d7-dea4-8076-b1d8-e68b3d6a4718" class="">
+</p></details></li></ul><p id="1a45a1d7-dea4-8092-99a9-dee068b46123" class="">
+</p><p id="1a45a1d7-dea4-801e-8745-f97a59bf4ff1" class="">
+</p><p id="1a45a1d7-dea4-80bf-a77c-d8834454d357" class="">
+</p><p id="1985a1d7-dea4-80d2-a8d5-c6fa9a6a4b7b" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
